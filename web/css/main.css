@@ -1,0 +1,29 @@
+.text{color:orange;}
+.button12{border-color:orange;
+color:red;
+font-size:30px;}
+.image_photo{
+background: url("../image/korpis2.jpg") no-repeat 50% 0;
+height:200px;
+width:200px;}
+
+.sborka{position:relative;
+margin-left:200px;
+width:300 px;
+height:300px;
+}
+.configurator_menu{
+    
+    
+
+}
+.komplects{position:absolute;
+  
+background:white;
+display:none;
+}
+.sborka:hover .komplects{
+	display:block;
+}
+.Name_sborka{margin-left:20px;}
+
