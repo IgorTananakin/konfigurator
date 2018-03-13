@@ -54,8 +54,12 @@ class Motherboard extends \yii\db\ActiveRecord
             'pci_count' => 'Количество Pci',
             'ide_count' => 'Количество Ide',
             'graphical_scheme' => 'Графическая схема',
-            'socket_id' => 'Socket ID',
+            'socket_id' => 'Socket',
             'power' => 'Мощность',
         ];
     }
+    public function getSocket()
+    {
+        return $this->hasOne(Socket::className(), ['id' => 'socket_id']);
+    } 
 }

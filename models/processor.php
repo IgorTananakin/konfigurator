@@ -51,5 +51,9 @@ class Processor extends \yii\db\ActiveRecord
             'power' => 'Мощность',
         ];
     }
+    public function getSocket()
+    {
+        return $this->hasOne(Socket::className(), ['id' => 'socket_id']);
+    } 
 
 }

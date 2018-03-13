@@ -5,6 +5,7 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -38,13 +39,32 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Сборки', 'url' => ['/site/sborki']],
-			['label' => 'Конфигуратор', 'url' => ['/site/sborki']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-			['label' => 'Contact', 'url' => ['/site/contact']],
-			['label' => 'Корзина', 'url' => ['/site/sborki']],
+            ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
+            ['label' => 'Конфигуратор', 'url' => ['/site/sborki']],
+            
+
+           // ['label' => 'Межкомнатные двери', 'url' => 'category/2'],
+            [
+                'label' => 'Меню',
+                'url' => ['admin'],
+                'template' => '<a href="{url}">{label}<i class="fa fa-angle-down"></i></a>'."\n",
+                'options' => [
+                'class' => 'dropdown',
+                ],
+                'items' => [
+                ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
+                ['label' => 'Процессор', 'url' => [Url::to(['processor/index'])]],
+                ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
+                ['label' => 'Материнская плата', 'url' => [Url::to(['motherboard/index'])]],
+                ]
+            ],
+
+
+            ['label' => 'Contact', 'url' => [Url::to(['contact/index'])]],
+			['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
+			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

@@ -45,8 +45,12 @@ class Coolingsystem extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Название',
             'price' => 'Цена',
-            'socket_id' => 'Socket ID',
+            'socket_id' => 'Socket',
             'power' => 'Мощность',
         ];
     }
+    public function getSocket()
+    {
+        return $this->hasOne(Socket::className(), ['id' => 'socket_id']);
+    } 
 }

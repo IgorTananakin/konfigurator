@@ -7,19 +7,22 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+
+'modules'=>[
+'admin'=>[
+'class'=>'app\module\admin\AdminModule',
+],
+'gii'=>'yii\gii\Module',
+
+
+],
+
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
 
-	//вернуться когда буду работать с ЧПУ
-	//'urlManager'=>[
-	//'enablePrettyUrl'=>false,
-	//'showScriptName'=>false,
-	//'rules'=>[
-	//	'about'=>site/about'
-	//]
-	//],
+	
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -52,14 +55,19 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
+                '<action:\w+>' => 'site/<action>',
+                '<module:cabinet>/<controller:\w+>/<id:\d+>' => '<module>/<controller>/view',
+                '<module:cabinet>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+                '<module:cabinet>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
