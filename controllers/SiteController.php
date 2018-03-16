@@ -11,12 +11,14 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-
+use app\models\Assembly;
 use yii\data\Pagination;
 
 
+
 class SiteController extends Controller
-{
+{ 
+    public $layout = 'user';
     /**
      * @inheritdoc
      */
@@ -66,7 +68,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $message="Hello word";
+        $assemblys=Assembly::find()->all();
+
+        return $this->render('index',
+            array('message'=>$message,
+            'assemblys'=>$assemblys)
+            );
+            
     }
 
     /**

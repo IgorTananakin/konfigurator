@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\HarddiskSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Harddisks';
+$this->title = 'Жёсткие диски';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="harddisk-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Harddisk', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать жёсткий диск', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

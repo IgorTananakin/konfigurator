@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Driver */
 
-$this->title = 'Create Driver';
-$this->params['breadcrumbs'][] = ['label' => 'Drivers', 'url' => ['index']];
+$this->title = 'Создать CD/DVD драйвер';
+$this->params['breadcrumbs'][] = ['label' => 'CD/DVD драйвера', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="driver-create">

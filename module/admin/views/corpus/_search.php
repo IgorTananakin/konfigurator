@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'size_hard_disc') ?>
 
-    <?php // echo $form->field($model, 'power') ?>
+    <?php  echo $form->field($model, 'power') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

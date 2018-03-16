@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Corpus */
 
-$this->title = 'Create Corpus';
-$this->params['breadcrumbs'][] = ['label' => 'Corpuses', 'url' => ['index']];
+$this->title = 'Создать корпус';
+$this->params['breadcrumbs'][] = ['label' => 'Корпуса', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="corpus-create">

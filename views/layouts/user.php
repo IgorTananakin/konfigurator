@@ -41,33 +41,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
             ['label' => 'Конфигуратор', 'url' => ['/site/sborki']],
-            
-
-           // ['label' => 'Межкомнатные двери', 'url' => 'category/2'],
-            [
-                'label' => 'Меню',
-                'url' => ['admin'],
-                'template' => '<a href="{url}">{label}<i class="fa fa-angle-down"></i></a>'."\n",
-                'options' => [
-                'class' => 'dropdown',
-                ],
-                'items' => [
-                ['label' => 'Сборки', 'url' => [Url::to(['admin/assembly'])]],
-                ['label' => 'Процессор', 'url' => [Url::to(['processor/index'])]],
-                ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
-                ['label' => 'Оперативная память', 'url' => [Url::to(['ram/index'])]],
-                ['label' => 'Жёсткий диск', 'url' => [Url::to(['harddisk/index'])]],
-                ['label' => 'Звуковая карта', 'url' => [Url::to(['soundcard/index'])]],
-                ['label' => 'Видео карта', 'url' => [Url::to(['videocard/index'])]],
-                ['label' => 'Сетевая карта', 'url' => [Url::to(['networkcard/index'])]],
-                ['label' => 'CD/DVD драйвер', 'url' => [Url::to(['driver/index'])]],
-                ['label' => 'Сокет', 'url' => [Url::to(['socket/index'])]],
-                ]
-            ],
-
-
             ['label' => 'Contact', 'url' => [Url::to(['contact/index'])]],
-			['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
 			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]

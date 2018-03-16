@@ -8,6 +8,7 @@ use app\models\CorpusSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CorpusController implements the CRUD actions for Corpus model.
@@ -28,6 +29,17 @@ class CorpusController extends Controller
             ],
         ];
     }
+    // public function behaviors()
+    // {
+    //     return [
+    //         [
+    //             'class' => '\yiidreamteam\photo\FileUploadBehavior',
+    //             'attribute' => 'image',
+    //             'filePath' => '@webroot/photos/[[pk]].[[extension]]',
+    //             'fileUrl' => '/photo/[[pk]].[[extension]]',
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all Corpus models.
@@ -63,10 +75,37 @@ class CorpusController extends Controller
      */
     public function actionCreate()
     {
+
+
+        // if ($model->load(Yii::$app->request->post())) {
+        //     $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+        //     if($this->validate()){
+        //         if ($model->imageFile && $model->upload()) {
+        //             $model->image = $this->imageFile->baseName . '.' . $this->imageFile->extension;
+        //         }
+        //         if($this->save()){
+        //             return $this->redirect(['view', 'id' => $model->id]);
+        //         }
+        //     }
+
+
+
         $model = new Corpus();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()))  {
+
+            //для вставки картинки в папку и в базу готово
+            $model->image=UploadedFile::getInstance($model,'image');
+            if($model->validate()){
+            if ($model->image) {
+            $model->image->saveAs('uploads/CorpusController/'.$model->image->baseName.'.'.$model->image->extension);
+            $model->image = $model->image->baseName . '.' . $model->image->extension;
+                    }
+            //
+            if($model->save()){
             return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -82,6 +121,7 @@ class CorpusController extends Controller
      */
     public function actionUpdate($id)
     {
+        $model = new Corpus();
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

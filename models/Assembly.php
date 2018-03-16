@@ -41,6 +41,7 @@ class Assembly extends \yii\db\ActiveRecord
         ];
     }
 
+    
     /**
      * @inheritdoc
      */
@@ -61,6 +62,7 @@ class Assembly extends \yii\db\ActiveRecord
             'coolingsystem.title' => 'Кулер',
             'corpus.title' => 'Корпус',
             'networkcard.title' => 'Сетевая карта',
+
         ];
     }
     public function getRam()

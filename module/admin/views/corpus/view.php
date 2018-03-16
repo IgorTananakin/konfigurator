@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Corpus */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Corpuses', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Корпуса', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="corpus-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+    
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -34,7 +34,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'size',
             'size_hard_disc',
             'power',
+            
+          
+
         ],
-    ]) ?>
+    
+        ]) ?>
+        
 
 </div>
+<h3>Изображение товара</h3>
+<img src="<?=$model->getImageUrl()?>" alt="картинка сборки"/>

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Corpus */
 
-$this->title = 'Update Corpus: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Corpuses', 'url' => ['index']];
+$this->title = 'Изменить корпус: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Корпуса', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="corpus-update">
 
