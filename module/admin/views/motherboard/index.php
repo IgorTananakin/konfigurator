@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\MotherboardSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Motherboards';
+$this->title = 'Материнские платы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="motherboard-index">
@@ -16,13 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Motherboard', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать материнскую плату', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',

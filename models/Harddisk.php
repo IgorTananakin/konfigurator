@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -15,6 +16,14 @@ use Yii;
  */
 class Harddisk extends \yii\db\ActiveRecord
 {
+     //добавление функции для вставки картинки во views
+    
+     public function getImageUrl()
+     {
+         return Url::to('@web/uploads/HarddiskController/' . $this->image);
+         
+     }
+     //
     /**
      * @inheritdoc
      */
@@ -29,10 +38,11 @@ class Harddisk extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'socket_id', 'power'], 'required'],
+            [['title', 'price', 'socket_id', 'power'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['socket_id', 'power'], 'integer'],
             [['title'], 'string', 'max' => 50],
+            [['image'],'image'],
         ];
     }
 
@@ -43,10 +53,10 @@ class Harddisk extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'price' => 'Price',
-            'socket_id' => 'Socket ID',
-            'power' => 'Power',
+            'title' => 'Название',
+            'price' => 'Цена',
+            'socket_id' => 'Socket',
+            'power' => 'Мощность',
         ];
     }
 }

@@ -6,9 +6,9 @@ use yii\helpers\Html;
 /* @var $model app\models\Motherboard */
 
 $this->title = 'Изменить материнскую плату: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Motherboards', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Материнские платы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="motherboard-update">
 

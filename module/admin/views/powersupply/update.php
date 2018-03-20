@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Powersupply */
 
-$this->title = 'Update Powersupply: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Powersupplies', 'url' => ['index']];
+$this->title = 'Изменить блок питания: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Блоки питания', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="powersupply-update">
 

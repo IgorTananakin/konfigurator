@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Motherboard */
 
 $this->title = 'Создать материнскую плату';
-$this->params['breadcrumbs'][] = ['label' => 'Motherboards', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Материнские платы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="motherboard-create">

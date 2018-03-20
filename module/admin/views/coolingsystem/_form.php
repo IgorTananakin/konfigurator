@@ -11,7 +11,7 @@ use app\models\Socket;
 
 <div class="coolingsystem-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+     <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'id')->textInput() ?>
 
@@ -24,6 +24,8 @@ use app\models\Socket;
     ['prompt'=>'']) ?>
 
     <?= $form->field($model, 'power')->textInput() ?>
+
+    <?= $form->field($model, 'image')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Изменить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

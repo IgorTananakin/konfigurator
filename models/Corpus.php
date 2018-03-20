@@ -21,9 +21,11 @@ class Corpus extends \yii\db\ActiveRecord
    
 
     //добавление функции для вставки картинки во views
+    
     public function getImageUrl()
     {
-        return Url::to('@web/uploads/CorpusController/' . $this->image, false);
+        return Url::to('@web/uploads/CorpusController/' . $this->image);
+        
     }
     //
 
@@ -57,11 +59,11 @@ class Corpus extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'price' => 'Price',
-            'size' => 'Size',
-            'size_hard_disc' => 'Size Hard Disc',
-            'power' => 'Power',
+            'title' => 'Название',
+            'price' => 'Цена',
+            'size' => 'Размер',
+            'size_hard_disc' => 'Физический размер жёсткого диска',
+            'power' => 'Мощность',
         ];
     }
 }

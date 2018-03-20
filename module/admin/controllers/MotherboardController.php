@@ -8,6 +8,7 @@ use app\models\MotherboardSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * MotherboardController implements the CRUD actions for Motherboard model.
@@ -65,8 +66,20 @@ class MotherboardController extends Controller
     {
         $model = new Motherboard();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()))  {
+
+            //для вставки картинки в папку и в базу готово
+            $model->image=UploadedFile::getInstance($model,'image');
+            if($model->validate()){
+            if ($model->image) {
+            $model->image->saveAs('uploads/MotherboardController/'.$model->image->baseName.'.'.$model->image->extension);
+            $model->image = $model->image->baseName . '.' . $model->image->extension;
+                    }
+            //
+            if($model->save()){
             return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
         } else {
             return $this->render('create', [
                 'model' => $model,

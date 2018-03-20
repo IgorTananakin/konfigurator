@@ -41,6 +41,9 @@ $this->title = 'Корзина';
         ],
     ]); ?>
     <p>
+    <!-- доработать кнопку очистить корзину -->
+    <?= Html::a('Очистить корзину', ['creates'], ['class' => 'btn btn-success']) ?>
     <?= Html::a('Оформить заказ', ['creates'], ['class' => 'btn btn-success']) ?>
+    
     </p>
 </div>

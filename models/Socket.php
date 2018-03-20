@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -9,9 +10,11 @@ use Yii;
  *
  * @property integer $id
  * @property string $title
+ * 
  */
 class Socket extends \yii\db\ActiveRecord
 {
+     
     /**
      * @inheritdoc
      */
@@ -26,8 +29,9 @@ class Socket extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            [['title'], 'required','message'=>'Не заполнено поле'],
             [['title'], 'string', 'max' => 20],
+            
         ];
     }
 

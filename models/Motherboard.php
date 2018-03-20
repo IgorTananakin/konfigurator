@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -16,9 +17,17 @@ use Yii;
  * @property string $graphical_scheme
  * @property integer $socket_id
  * @property integer $power
+ *  @property integer $image
  */
 class Motherboard extends \yii\db\ActiveRecord
 {
+        //добавление функции для вставки картинки во views
+    
+        public function getImageUrl()
+        {
+            return Url::to('@web/uploads/MotherboardController/' . $this->image);
+            
+        }
     /**
      * @inheritdoc
      */
@@ -33,11 +42,12 @@ class Motherboard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'sound', 'pci_count', 'ide_count', 'graphical_scheme', 'socket_id', 'power'], 'required'],
+            [['title', 'price', 'sound', 'pci_count', 'ide_count', 'graphical_scheme', 'socket_id', 'power'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['pci_count', 'ide_count', 'socket_id', 'power'], 'integer'],
             [['title'], 'string', 'max' => 50],
             [['sound', 'graphical_scheme'], 'string', 'max' => 30],
+            [['image'],'image'],
         ];
     }
 

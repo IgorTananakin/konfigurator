@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\DriverSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Drivers';
+$this->title = 'CD/DVD диски';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="driver-index">
@@ -16,13 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Driver', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать CD/DVD диск', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+         //   ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',

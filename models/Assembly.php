@@ -22,6 +22,13 @@ use Yii;
  */
 class Assembly extends \yii\db\ActiveRecord
 {
+        //добавление функции для вставки картинки во views
+    
+        public function getImageUrl()
+        {
+            return Url::to('@web/uploads/CorpusController/' . $this->image);
+            
+        }
     /**
      * @inheritdoc
      */

@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -10,9 +11,18 @@ use Yii;
  * @property integer $id
  * @property string $title
  * @property integer $power
+ * @property integer $image
  */
 class Networkcard extends \yii\db\ActiveRecord
 {
+      //добавление функции для вставки картинки во views
+    
+      public function getImageUrl()
+      {
+          return Url::to('@web/uploads/NetworkcardController/' . $this->image);
+          
+      }
+      //
     /**
      * @inheritdoc
      */
@@ -27,9 +37,10 @@ class Networkcard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'power'], 'required'],
+            [['title', 'power'], 'required','message'=>'Не заполнено поле'],
             [['power'], 'integer'],
             [['title'], 'string', 'max' => 50],
+            [['image'],'image'],
         ];
     }
 

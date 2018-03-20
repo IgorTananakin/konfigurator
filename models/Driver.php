@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -15,6 +16,14 @@ use Yii;
  */
 class Driver extends \yii\db\ActiveRecord
 {
+     //добавление функции для вставки картинки во views
+    
+     public function getImageUrl()
+     {
+         return Url::to('@web/uploads/DriverController/' . $this->image);
+         
+     }
+     //
     /**
      * @inheritdoc
      */
@@ -29,10 +38,11 @@ class Driver extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'title', 'price', 'size', 'power'], 'required'],
+            [['id', 'title', 'price', 'size', 'power'], 'required','message'=>'Не заполнено поле'],
             [['id', 'size', 'power'], 'integer'],
             [['price'], 'number'],
             [['title'], 'string', 'max' => 50],
+            [['image'],'image'],
         ];
     }
 

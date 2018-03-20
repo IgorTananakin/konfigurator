@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -16,9 +17,18 @@ use Yii;
  * @property integer $pci_count
  * @property integer $pcie_count
  * @property integer $power
+ * @property integer $image
  */
 class Videocard extends \yii\db\ActiveRecord
 {
+      //добавление функции для вставки картинки во views
+    
+      public function getImageUrl()
+      {
+          return Url::to('@web/uploads/VideocardController/' . $this->image);
+          
+      }
+      //
     /**
      * @inheritdoc
      */
@@ -33,11 +43,12 @@ class Videocard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'graphical_scheme', 'video_controler', 'size_video_memory', 'pci_count', 'pcie_count', 'power'], 'required'],
+            [['title', 'price', 'graphical_scheme', 'video_controler', 'size_video_memory', 'pci_count', 'pcie_count', 'power'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['size_video_memory', 'pci_count', 'pcie_count', 'power'], 'integer'],
             [['title', 'graphical_scheme'], 'string', 'max' => 50],
             [['video_controler'], 'string', 'max' => 30],
+            [['image'],'image'],
         ];
     }
 

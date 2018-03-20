@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -11,9 +12,18 @@ use Yii;
  * @property string $title
  * @property string $price
  * @property integer $power
+ * @property integer $image
  */
 class Powersupply extends \yii\db\ActiveRecord
 {
+      //добавление функции для вставки картинки во views
+    
+      public function getImageUrl()
+      {
+          return Url::to('@web/uploads/PowersupplyController/' . $this->image);
+          
+      }
+      //
     /**
      * @inheritdoc
      */
@@ -28,10 +38,11 @@ class Powersupply extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'power'], 'required'],
+            [['title', 'price', 'power'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['power'], 'integer'],
             [['title'], 'string', 'max' => 50],
+            [['image'],'image'],
         ];
     }
 

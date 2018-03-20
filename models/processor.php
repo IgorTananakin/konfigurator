@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -11,9 +12,18 @@ use Yii;
  * @property string $name
  * @property string $socket
  * @property integer $price
+ * @property integer $image
  */
 class Processor extends \yii\db\ActiveRecord
 {
+      //добавление функции для вставки картинки во views
+    
+      public function getImageUrl()
+      {
+          return Url::to('@web/uploads/ProcessorController/' . $this->image);
+          
+      }
+      //
     /**
      * @inheritdoc
      */
@@ -28,9 +38,10 @@ class Processor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'socket', 'price'], 'required'],
+            [['name', 'socket', 'price'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'integer'],
             [['name', 'socket'], 'string', 'max' => 255],
+            [['image'],'image'],
         ];
     }
 

@@ -121,7 +121,7 @@ class CorpusController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = new Corpus();
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

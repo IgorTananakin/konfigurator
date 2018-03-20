@@ -14,7 +14,7 @@ use app\models\ContactForm;
 use app\models\Assembly;
 use yii\data\Pagination;
 
-
+//use yii\filters\AccessControl;// просмотреть зачем нужно
 
 class SiteController extends Controller
 { 
@@ -27,11 +27,17 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['login', 'logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
                         'allow' => true,
+                        'actions' => ['login', 'signup'],
+                        'roles' => ['?'],
+                        
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['logout'],
                         'roles' => ['@'],
                     ],
                 ],
@@ -78,6 +84,20 @@ class SiteController extends Controller
             );
             
     }
+
+
+    public function actionConfigurator()
+    {
+
+        $message="Hello word ты на странице конфигуратора";
+
+        return $this->render('configurator',
+            array('message'=>$message,
+            )
+            );
+            
+    }
+
 
     /**
      * Login action.

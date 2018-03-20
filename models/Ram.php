@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -14,9 +15,18 @@ use Yii;
  * @property integer $frequency
  * @property integer $sze
  * @property integer $power
+ * @property integer $image
  */
 class Ram extends \yii\db\ActiveRecord
 {
+     //добавление функции для вставки картинки во views
+    
+     public function getImageUrl()
+     {
+         return Url::to('@web/uploads/RamController/' . $this->image);
+         
+     }
+     //
     /**
      * @inheritdoc
      */
@@ -31,11 +41,12 @@ class Ram extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'manufacturer', 'price', 'frequency', 'sze', 'power'], 'required'],
+            [['title', 'manufacturer', 'price', 'frequency', 'sze', 'power'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['frequency', 'sze', 'power'], 'integer'],
             [['title'], 'string', 'max' => 50],
             [['manufacturer'], 'string', 'max' => 10],
+            [['image'],'image'],
         ];
     }
 

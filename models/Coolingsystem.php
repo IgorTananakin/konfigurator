@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\Url;
+use yii\helpers\Html;
 use Yii;
 
 /**
@@ -12,9 +13,18 @@ use Yii;
  * @property string $price
  * @property integer $socket_id
  * @property integer $power
+ * @property integer $image
  */
 class Coolingsystem extends \yii\db\ActiveRecord
 {
+     //добавление функции для вставки картинки во views
+    
+     public function getImageUrl()
+     {
+         return Url::to('@web/uploads/CoolingsystemController/' . $this->image);
+         
+     }
+     //
     /**
      * @inheritdoc
      */
@@ -29,10 +39,11 @@ class Coolingsystem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'title', 'price', 'socket_id', 'power'], 'required'],
+            [['id', 'title', 'price', 'socket_id', 'power'], 'required','message'=>'Не заполнено поле'],
             [['id', 'socket_id', 'power'], 'integer'],
             [['price'], 'number'],
             [['title'], 'string', 'max' => 50],
+            [['image'],'image'],
         ];
     }
 

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Networkcard */
 
-$this->title = 'Update Networkcard: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Networkcards', 'url' => ['index']];
+$this->title = 'Изменить севую карту: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Сетевые карты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="networkcard-update">
 

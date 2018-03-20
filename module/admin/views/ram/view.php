@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы действительно хотите удалить?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -39,3 +39,5 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+<h3>Изображение товара</h3>
+<img src="<?=$model->getImageUrl()?>" alt="картинка корпуса"/>

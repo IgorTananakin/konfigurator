@@ -8,6 +8,7 @@ use app\models\HarddiskSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * HarddiskController implements the CRUD actions for Harddisk model.
@@ -64,15 +65,28 @@ class HarddiskController extends Controller
     public function actionCreate()
     {
         $model = new Harddisk();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+      
+    
+            if ($model->load(Yii::$app->request->post()))  {
+    
+                //для вставки картинки в папку и в базу готово
+                $model->image=UploadedFile::getInstance($model,'image');
+                if($model->validate()){
+                if ($model->image) {
+                $model->image->saveAs('uploads/HarddiskController/'.$model->image->baseName.'.'.$model->image->extension);
+                $model->image = $model->image->baseName . '.' . $model->image->extension;
+                        }
+                //
+                if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
         }
-    }
 
     /**
      * Updates an existing Harddisk model.

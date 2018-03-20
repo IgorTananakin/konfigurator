@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Driver */
 
-$this->title = 'Update Driver: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Drivers', 'url' => ['index']];
+$this->title = 'Изменить CD/DVD диск: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'CD/DVD диски', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="driver-update">
 

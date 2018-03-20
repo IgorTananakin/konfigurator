@@ -8,6 +8,7 @@ use app\models\CoolingsystemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CoolingsystemController implements the CRUD actions for Coolingsystem model.
@@ -63,10 +64,23 @@ class CoolingsystemController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new Coolingsystem();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()))  {
+
+        //     //для вставки картинки в папку и в базу готово
+            $model->image=UploadedFile::getInstance($model,'image');
+            if($model->validate()){
+            if ($model->image) {
+            $model->image->saveAs('uploads/CoolingsystemController/'.$model->image->baseName.'.'.$model->image->extension);
+            $model->image = $model->image->baseName . '.' . $model->image->extension;
+                    }
+            //
+            if($model->save()){
             return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
         } else {
             return $this->render('create', [
                 'model' => $model,

@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Networkcard */
 
-$this->title = 'Create Networkcard';
-$this->params['breadcrumbs'][] = ['label' => 'Networkcards', 'url' => ['index']];
+$this->title = 'Создать сетевую карту';
+$this->params['breadcrumbs'][] = ['label' => 'Сетевые карты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="networkcard-create">

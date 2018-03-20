@@ -1,3 +1,25 @@
+.assembly{
+	/* width:200px; */
+	/* position:relative	; */
+
+}
+.more{color:#FF8000;}
+.btn-more {
+	color: #fff;
+	background-color: #FF8000;
+	border-color: #FF8000;
+  }
+  .btn-more:focus,
+  .btn-more.focus {
+	color: #fff;
+	background-color: #FF8000;
+	border-color: #122b40;
+  }
+  .btn-more:hover {
+	color: #fff;
+	background-color: #FF8000;
+	border-color: #204d74;
+  }
 .text{color:orange;}
 .button12{border-color:orange;
 color:red;
@@ -17,13 +39,13 @@ height:300px;
     
 
 }
-.komplects{position:absolute;
+/* .komplects{position:absolute;
   
 background:white;
 display:none;
-}
-.sborka:hover .komplects{
+} */
+/* .sborka:hover .komplects{
 	display:block;
 }
-.Name_sborka{margin-left:20px;}
+.Name_sborka{margin-left:20px;} */
 
