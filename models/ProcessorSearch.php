@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\models\Processor;
 
 /**
- * ProcessorSearch represents the model behind the search form about `app\models\Processor`.
+ * ProcessorSearch represents the model behind the search form of `app\models\Processor`.
  */
 class ProcessorSearch extends Processor
 {
@@ -19,7 +19,7 @@ class ProcessorSearch extends Processor
     {
         return [
             [['id', 'socket_id', 'price', 'digit_capacity', 'keh_memory', 'load', 'power'], 'integer'],
-            [['title'], 'safe'],
+            [['title', 'image'], 'safe'],
             [['frequency'], 'number'],
         ];
     }
@@ -70,7 +70,8 @@ class ProcessorSearch extends Processor
             'power' => $this->power,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }

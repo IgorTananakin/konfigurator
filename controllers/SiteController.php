@@ -13,6 +13,10 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Assembly;
 use yii\data\Pagination;
+use app\models\Signup;
+use app\models\Login;
+
+
 
 //use yii\filters\AccessControl;// просмотреть зачем нужно
 
@@ -74,10 +78,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
         $message="Hello word";
         $assemblys=Assembly::find()->all();
-
         return $this->render('index',
             array('message'=>$message,
             'assemblys'=>$assemblys)
@@ -99,32 +101,14 @@ class SiteController extends Controller
     }
 
 
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
+   
 
     /**
      * Logout action.
      *
      * @return Response
      */
-    public function actionLogout()
+    public function actionLogout()//разобраться в методе
     {
         Yii::$app->user->logout();
 
@@ -160,6 +144,53 @@ class SiteController extends Controller
     }
 	
 	
+    public function actionSignup()
+    {
+        $model = new Signup();
+
+        if(isset($_POST['Signup']))
+        {
+            $model->attributes=Yii::$app->request->post('Signup');
+            if($model->validate()&& $model->signup())
+            {
+                
+               return $this->goHome();
+            }
+        }
+        return $this->render('signup',['model'=>$model]);
+        
+    }
+
+    public function actionLogin()
+    {
+        $login_model = new Login();
+        if (Yii::$app->request->post('Login'))//проверка на приход данных
+        {
+            //  if (Yii::$app->user->isGuest)//если пользователь залогинился перенаправляю его на index //разобрать в этом условии
+            // {
+            //     return $this->goHome();
+            // }
+            //проверяю соответствует ли данные в базе
+            $login_model->attributes=Yii::$app->request->post('Login');
+            
+            if ($login_model->validate())
+            {
+                Yii::$app->user->login($login_model->getUser());
+                //даю возможность для пользователя и клиента сайта использовать
+                //свои данные на всём участке сайта
+                //проще авторизация пользователя в систем
+                //$app юзер, но он не имеет не чего общего с моделью user
+                //$app компонент для управления пользователя в системе
+                //$login_model->getUser() передаю конкретного пользователя
+                //метод login принимает только тот экземпляр модели который реализует интерфейс IndentityInterface
+                return $this->goHome();
+            }
+        }
+        return $this->render('login',['login_model'=>$login_model]);
+           
+    }
+    
+   
 	
 	
 	

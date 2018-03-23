@@ -1,12 +1,11 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Assembly */
 /* @var $form ActiveForm */
 ?>
+
 
 
 
@@ -22,9 +21,9 @@ use yii\widgets\ActiveForm;
 	
 	<!-- <img src="<?//=$model->getImageUrl()?>" alt="картинка сборки"/> -->
 	<?$cost=0;?>
-	<img src="uploads/CorpusController/korpis1.jpg" class="button12"alt="картинка сборки"/>
+	<img src="/uploads/CorpusController/korpis1.jpg" class="button12"alt="картинка сборки"/>
 		<p class="text-primary">Процессор:<small><?=$assembly->processor->title;?></small></p>
-		<?$cost=$assembly->processor->price;?>
+		<?//$cost=$assembly->processor->price;?>
 		<p class="text-primary">Оперативная память: <small><?=$assembly->ram->title?></small></p>
 		<?$cost=$assembly->ram->price?>
 		<p class="text-primary">Материнская плата: <small><?=$assembly->motherboard->title?></small></p>
@@ -45,6 +44,3 @@ use yii\widgets\ActiveForm;
 	</div>
 	</div>
 </div>
-
- 
-

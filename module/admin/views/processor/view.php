@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'keh_memory',
             'load',
             'power',
+            //'image',
         ],
     ]) ?>
 

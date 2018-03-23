@@ -8,22 +8,27 @@ use Yii;
 /**
  * This is the model class for table "processor".
  *
- * @property string $id
- * @property string $name
- * @property string $socket
- * @property integer $price
- * @property integer $image
+ * @property int $id
+ * @property string $title
+ * @property int $socket_id
+ * @property int $price
+ * @property string $frequency
+ * @property int $digit_capacity
+ * @property int $keh_memory
+ * @property int $load
+ * @property int $power
+ * @property string $image
  */
 class Processor extends \yii\db\ActiveRecord
 {
-      //добавление функции для вставки картинки во views
+        //добавление функции для вставки картинки во views
     
-      public function getImageUrl()
-      {
-          return Url::to('@web/uploads/ProcessorController/' . $this->image);
-          
-      }
-      //
+        public function getImageUrl()
+        {
+            return Url::to('@web/uploads/ProcessorController/' . $this->image);
+            
+        }
+        //
     /**
      * @inheritdoc
      */
@@ -38,9 +43,9 @@ class Processor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'socket', 'price'], 'required','message'=>'Не заполнено поле'],
-            [['price'], 'integer'],
-            [['name', 'socket'], 'string', 'max' => 255],
+            [['title', 'socket_id', 'price', 'frequency', 'digit_capacity', 'keh_memory', 'load', 'power'], 'required','message'=>'Не заполнено поле'],
+            [['socket_id', 'price', 'digit_capacity', 'keh_memory', 'load', 'power'], 'integer'],
+            [['frequency'], 'number'],
             [['image'],'image'],
         ];
     }
@@ -53,18 +58,18 @@ class Processor extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Название',
-            'socket' => 'Socket',
+            'socket_id' => 'Socket',
             'price' => 'Цена',
             'frequency' => 'Частота',
-            'digit_capacity' => 'Разрядность',
+            'digit_capacity' => 'Digit Capacity',
             'keh_memory' => 'Кеш память',
-            'load' => 'Нагрузка',
+            'load' => 'Load',
             'power' => 'Мощность',
+            //'image' => 'Image',
         ];
     }
     public function getSocket()
     {
         return $this->hasOne(Socket::className(), ['id' => 'socket_id']);
-    } 
-
+    }
 }

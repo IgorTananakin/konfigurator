@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ProcessorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Процессор';
+$this->title = 'Процессоры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="processor-index">
@@ -16,23 +16,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Создать процессор', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Изменить процессор', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        //'filterModel' => $searchModel,
+        'filterModel' => $searchModel,
         'columns' => [
-          //  ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
             'socket_id',
             'price',
             'frequency',
-             'digit_capacity',
-             'keh_memory',
-             'load',
-             'power',
+            'digit_capacity',
+            'keh_memory',
+            'load',
+            'power',
+            //'image',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

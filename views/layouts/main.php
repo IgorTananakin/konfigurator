@@ -54,6 +54,7 @@ AppAsset::register($this);
                 'items' => [
                 ['label' => 'Сборки', 'url' => [Url::to(['admin/assembly'])]],
                 ['label' => 'Процессор', 'url' => [Url::to(['processor/index'])]],
+                ['label' => 'Материнская плата', 'url' => [Url::to(['motherboard/index'])]],
                 ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
                 ['label' => 'Оперативная память', 'url' => [Url::to(['ram/index'])]],
                 ['label' => 'Жёсткий диск', 'url' => [Url::to(['harddisk/index'])]],
@@ -66,8 +67,8 @@ AppAsset::register($this);
             ],
 
 
-            ['label' => 'Contact', 'url' => [Url::to(['contact/index'])]],
-			['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
+           // ['label' => 'Contact', 'url' => [Url::to(['contact/index'])]],
+		   // ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
 			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
@@ -75,7 +76,7 @@ AppAsset::register($this);
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'Logout (' . Yii::$app->user->identity->email. ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Processor */
 
-$this->title = 'Изменить процессор: ' . $model->title;
+$this->title = 'Изменить процессор: ';
 $this->params['breadcrumbs'][] = ['label' => 'Процессоры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Изменить';
