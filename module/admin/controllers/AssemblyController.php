@@ -8,11 +8,13 @@ use app\models\AssemblySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+ use yii\web\HttpException;
 
 /**
  * AssemblyController implements the CRUD actions for Assembly model.
- */
-class AssemblyController extends Controller
+ 
+*/
+class AssemblyController extends AdminController
 {
     /**
      * @inheritdoc
@@ -26,8 +28,13 @@ class AssemblyController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+          
         ];
     }
+
+
+
+
 
     /**
      * Lists all Assembly models.
@@ -43,6 +50,7 @@ class AssemblyController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
 
     /**
      * Displays a single Assembly model.

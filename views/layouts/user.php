@@ -39,17 +39,18 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
-            ['label' => 'Конфигуратор', 'url' => ['/site/sborki']],
-         // ['label' => 'Contact', 'url' => [Url::to(['contact/index'])]],
-			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
+            ['label' => 'Сборки', 'url' => [Url::to(['index'])]],
+            ['label' => 'Конфигуратор', 'url' => ['configurator']],
+            ['label' => 'Личный кабинет', 'url' => [Url::to(['contact/index'])]],
+            ['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
+            ['label' => 'Регистрация', 'url' => [Url::to(['/site/signup'])]],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->email . ')',//отбражаю email пользователя или клиента
+                    'Выйти ' . Yii::$app->user->identity->email,//отбражаю email пользователя или клиента
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

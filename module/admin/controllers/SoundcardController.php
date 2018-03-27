@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * SoundcardController implements the CRUD actions for Soundcard model.
  */
-class SoundcardController extends Controller
+class SoundcardController extends AdminController
 {
     /**
      * @inheritdoc

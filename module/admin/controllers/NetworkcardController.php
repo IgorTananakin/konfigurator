@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * NetworkcardController implements the CRUD actions for Networkcard model.
  */
-class NetworkcardController extends Controller
+class NetworkcardController extends AdminController
 {
     /**
      * @inheritdoc

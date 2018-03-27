@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * DriverController implements the CRUD actions for Driver model.
  */
-class DriverController extends Controller
+class DriverController extends AdminController
 {
     /**
      * @inheritdoc

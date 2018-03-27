@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * CorpusController implements the CRUD actions for Corpus model.
  */
-class CorpusController extends Controller
+class CorpusController extends AdminController
 {
     /**
      * @inheritdoc

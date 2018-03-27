@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * VideocardController implements the CRUD actions for Videocard model.
  */
-class VideocardController extends Controller
+class VideocardController extends AdminController
 {
     /**
      * @inheritdoc

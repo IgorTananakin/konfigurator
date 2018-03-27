@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * HarddiskController implements the CRUD actions for Harddisk model.
  */
-class HarddiskController extends Controller
+class HarddiskController extends AdminController
 {
     /**
      * @inheritdoc

@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * MotherboardController implements the CRUD actions for Motherboard model.
  */
-class MotherboardController extends Controller
+class MotherboardController extends AdminController
 {
     /**
      * @inheritdoc

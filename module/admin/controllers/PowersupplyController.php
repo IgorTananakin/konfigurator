@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * PowersupplyController implements the CRUD actions for Powersupply model.
  */
-class PowersupplyController extends Controller
+class PowersupplyController extends AdminController
 {
     /**
      * @inheritdoc

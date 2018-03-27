@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * ProcessorController implements the CRUD actions for Processor model.
  */
-class ProcessorController extends Controller
+class ProcessorController extends AdminController
 {
     /**
      * @inheritdoc

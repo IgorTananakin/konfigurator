@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * CoolingsystemController implements the CRUD actions for Coolingsystem model.
  */
-class CoolingsystemController extends Controller
+class CoolingsystemController extends AdminController
 {
     /**
      * @inheritdoc

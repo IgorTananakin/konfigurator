@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * RamController implements the CRUD actions for Ram model.
  */
-class RamController extends Controller
+class RamController extends AdminController
 {
     /**
      * @inheritdoc

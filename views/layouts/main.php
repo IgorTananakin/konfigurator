@@ -67,7 +67,7 @@ AppAsset::register($this);
             ],
 
 
-           // ['label' => 'Contact', 'url' => [Url::to(['contact/index'])]],
+            ['label' => 'Личный кабинет', 'url' => [Url::to(['contact/index'])]],
 		   // ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
 			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
             Yii::$app->user->isGuest ? (
@@ -76,7 +76,7 @@ AppAsset::register($this);
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->email. ')',
+                    'Выйти ' . Yii::$app->user->identity->email,
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

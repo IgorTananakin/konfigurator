@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * SocketController implements the CRUD actions for Socket model.
  */
-class SocketController extends Controller
+class SocketController extends AdminController
 {
     /**
      * @inheritdoc
