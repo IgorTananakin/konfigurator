@@ -61,4 +61,18 @@ class Basket extends \yii\db\ActiveRecord
             'corpus_id' => 'Corpus ID',
         ];
     }
+    // public function addToCart($product,$qty=1)
+    // {
+    //     if (isset($_SESSION['basket'][$product->id]))
+    //     {
+    //         $_SESSION['basket'][$product->id]['qty']+=$qty;
+    //     }else{
+    //         $_SESSION['basket'][$product->id]=[
+    //             'qty' => $qty,
+    //             'title' =>$product->title,
+    //             'price' => $product->price
+    //         ]
+    //     }
+    //     $_SESSION[]
+    // }
 }
