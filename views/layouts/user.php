@@ -36,13 +36,16 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    //$count=sizeof($_SESSION['basket']); 
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Сборки', 'url' => [Url::to(['index'])]],
             ['label' => 'Конфигуратор', 'url' => ['configurator']],
             ['label' => 'Личный кабинет', 'url' => [Url::to(['contact/index'])]],
-            ['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
+            ['label' => 'Корзина '/*.$count*/, 'url' => [Url::to(['basket/index'])]],
+            
             ['label' => 'Регистрация', 'url' => [Url::to(['/site/signup'])]],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
@@ -70,7 +73,15 @@ AppAsset::register($this);
     </div>
 </div>
 
+<!-- <?//php \yii\bootstrap\Modal::begin([
+// 'header'=>'<h2>Корзина</h2>',
+// 'id'=>'basket',
+// 'footer'=>'<button type="button" class="btn btn-default"
+// data-dismiss="modal">Закрыть</button>
+// <button type="button" class="btn btn-primary">оформить заказ </button>'
 
+// ]);
+// \yii\bootstrap\Modal::end();?> -->
 
 <?php $this->endBody() ?>
 </body>

@@ -72,6 +72,23 @@ class Assembly extends \yii\db\ActiveRecord
 
         ];
     }
+    public function getSum($assembly)
+    {
+        $count = $assembly->ram->price;
+        $count = $assembly->processor->price+$count;
+        $count = $assembly->motherboard->price+$count;
+         $count = $assembly->videocard->price+$count;
+         $count = $assembly->networkcard->price+$count;
+         $count = $assembly->harddisc->price+$count;
+         $count = $assembly->processor->price+$count;
+         $count = $assembly->corpus->price+$count;
+         $count = $assembly->driver->price+$count;
+         $count = $assembly->coolingsystem->price+$count;
+         $count = $assembly->powersupply->price+$count;
+        
+        
+        return $count;
+    }
     public function getRam()
     {
         return $this->hasOne(Ram::className(), ['id' => 'ram_id']);

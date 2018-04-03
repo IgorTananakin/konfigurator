@@ -4,6 +4,9 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Basket;
+use app\models\Assembly;
+
+
 use app\models\BasketSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -11,10 +14,7 @@ use yii\filters\VerbFilter;
 
 
 
-/**
- * BasketController implements the CRUD actions for Basket model.
- */
-class BasketController extends Controller
+class BasketController extends SiteController
 {
     /**
      * @inheritdoc
@@ -33,6 +33,53 @@ class BasketController extends Controller
 
 
 
+
+
+
+
+
+//для работы корзины
+public function actionAdd()
+{
+    $id=Yii::$app->request->get('id');//данные из get
+   // $session->open();
+
+
+
+    $_SESSION['basket'][]=$id;
+    $session = Yii::$app->session;
+    
+    return $this->redirect(['basket/index']
+    );          
+     
+}
+
+
+
+// public function actionAdd()
+// {
+//     $id=Yii::$app->request->get('id');//данные из get
+//     $assembly=Assembly::findOne($id);
+//     if (empty($assembly))return false;
+//     $session=Yii::$app->session;
+//     $session->open();
+//     $basket=new Basket();
+//     $basket->addToBasket($assembly);
+   
+            
+     
+// }
+//
+public function actionClear()
+{
+    $session=Yii::$app->session;
+    $session->open();
+    $session-remove('basket');
+    $session-remove('basket.qty');
+    $session-remove('basket.sum');
+    $this->layout=false;
+    return $this->render('basket-modal',compact('session'));
+}
 
 
 
@@ -132,4 +179,5 @@ class BasketController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }

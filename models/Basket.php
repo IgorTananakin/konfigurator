@@ -4,22 +4,7 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "basket".
- *
- * @property integer $id
- * @property integer $assembly_id
- * @property integer $processor_id
- * @property integer $ram_id
- * @property integer $hard_disk_id
- * @property integer $driver_id
- * @property integer $video_card_id
- * @property integer $cooling_system_id
- * @property integer $sound_id
- * @property integer $power_supply_id
- * @property integer $network_card_id
- * @property integer $corpus_id
- */
+
 class Basket extends \yii\db\ActiveRecord
 {
     /**
@@ -61,18 +46,36 @@ class Basket extends \yii\db\ActiveRecord
             'corpus_id' => 'Corpus ID',
         ];
     }
-    // public function addToCart($product,$qty=1)
+    // public function addToBasket($assembly,$qty=1)
     // {
-    //     if (isset($_SESSION['basket'][$product->id]))
-    //     {
-    //         $_SESSION['basket'][$product->id]['qty']+=$qty;
-    //     }else{
-    //         $_SESSION['basket'][$product->id]=[
-    //             'qty' => $qty,
-    //             'title' =>$product->title,
-    //             'price' => $product->price
-    //         ]
-    //     }
-    //     $_SESSION[]
-    // }
+    //     echo "jrvndfkbdfk";die;
+    //     var_dump( "Worked!");die;
+    // //       if (isset($_SESSION['basket'][$assembly->id]))//проверка если в корзине уже
+    // //       {
+    // //          $_SESSION['basket'][$assembly->id]['qty']+=$qty;
+    // //       }else{
+    //         //   $_SESSION['basket'][$assembly->id]=[
+    //         //       'qty' => $qty,
+    //         //       'title' =>$assembly->title,
+    //         //       'price' => $assembly->price
+    //         //   ];
+    // //       }
+    // //       $_SESSION['basket.qty'] = isset($_SESSION['basket.qty']) ? $_SESSION['basket.qty'] + $qty : $qty;
+    // // //добавляю в массив basket.qty и проверяю если есть такой товар то плюсую количество если нет то добавляю один к количеству
+    // // $_SESSION['basket.sum'] = isset($_SESSION['basket.sum']) ? $_SESSION['basket.sum'] + $qty * $assembly->price : $qty * $assembly->price;
+    //  }
+    public function addToBasket($assembly,$qty=1)
+    {
+        // echo "jrvndfkbdfk";die;
+        // var_dump( "Worked!");die;
+         
+              $_SESSION['basket'][$assembly->id]=[
+                  'qty' => $qty,
+                  'title' =>$assembly->ram_id,
+                  
+              ];
+          
+    echo ($_SESSION['basket'][$assembly-id]);die;
+    
+     }
 }
