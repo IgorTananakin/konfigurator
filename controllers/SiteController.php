@@ -100,6 +100,17 @@ class SiteController extends Controller
             );
             
     }
+    public function actionAccount()
+    {
+
+        $message="Hello word ты на странице конфигуратора";
+
+        return $this->render('account',
+            array('message'=>$message,
+            )
+            );
+            
+    }
 
 
    

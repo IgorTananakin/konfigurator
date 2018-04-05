@@ -36,12 +36,12 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    var_dump (sizeof($_SESSION['basket'])) ; 
+  
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
-            ['label' => 'Конфигуратор', 'url' => ['/site/sborki']],
+            ['label' => 'Конфигуратор', 'url' => [Url::to(['site/configurator'])]],
             
 
            // ['label' => 'Межкомнатные двери', 'url' => 'category/2'],
@@ -68,7 +68,7 @@ AppAsset::register($this);
             ],
 
 
-            ['label' => 'Личный кабинет', 'url' => [Url::to(['contact/index'])]],
+            ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
 		   // ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
 			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
             Yii::$app->user->isGuest ? (

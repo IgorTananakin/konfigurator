@@ -32,8 +32,8 @@
 // });
 
 
-$('.add-to-basket').on('click', function (e)
-{
-     e.preventDefault();//отменяю переход по сылки
+// $('.add-to-basket').on('click', function (e)
+// {
+//      e.preventDefault();//отменяю переход по сылки
 
- });
+//  });

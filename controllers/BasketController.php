@@ -43,18 +43,23 @@ public function actionAdd()
 {
     $id=Yii::$app->request->get('id');//данные из get
    // $session->open();
-
+   
 
 
     $_SESSION['basket'][]=$id;
-    $session = Yii::$app->session;
-    
+   // $session = Yii::$app->session;
+    //$result = array_unique($_SESSION['basket']);//убираю повторения 
     return $this->redirect(['basket/index']
     );          
      
 }
 
-
+public function actionDel()
+{
+    $id = Yii::$app->request->get('id');
+    unset($_SESSION['basket'][$id]);
+    return $this->redirect(['basket/index']);   
+}
 
 // public function actionAdd()
 // {
@@ -70,16 +75,16 @@ public function actionAdd()
      
 // }
 //
-public function actionClear()
-{
-    $session=Yii::$app->session;
-    $session->open();
-    $session-remove('basket');
-    $session-remove('basket.qty');
-    $session-remove('basket.sum');
-    $this->layout=false;
-    return $this->render('basket-modal',compact('session'));
-}
+// public function actionClear()
+// {
+//     $session=Yii::$app->session;
+//     $session->open();
+//     $session-remove('basket');
+//     $session-remove('basket.qty');
+//     $session-remove('basket.sum');
+//     $this->layout=false;
+//     return $this->render('basket-modal',compact('session'));
+// }
 
 
 

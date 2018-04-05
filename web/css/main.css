@@ -3,6 +3,9 @@
 	/* position:relative	; */
 
 }
+.del-item{
+	cursor: pointer;
+}
 .more{color:#FF8000;}
 .btn-more {
 	color: #fff;

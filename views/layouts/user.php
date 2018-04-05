@@ -43,15 +43,15 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Сборки', 'url' => [Url::to(['index'])]],
             ['label' => 'Конфигуратор', 'url' => ['configurator']],
-            ['label' => 'Личный кабинет', 'url' => [Url::to(['contact/index'])]],
+            ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
             ['label' => 'Корзина '/*.$count*/, 'url' => [Url::to(['basket/index'])]],
             
-            ['label' => 'Регистрация', 'url' => [Url::to(['/site/signup'])]],
+            ['label' => 'Регистрация', 'url' => [Url::to(['site/signup'])]],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+                ['label' => 'Войти', 'url' => ['site/login']]
             ) : (
                 '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
+                . Html::beginForm(['site/logout'], 'post')
                 . Html::submitButton(
                     'Выйти ' . Yii::$app->user->identity->email,//отбражаю email пользователя или клиента
                     ['class' => 'btn btn-link logout']
