@@ -12,14 +12,15 @@ use yii\widgets\ActiveForm;
     <p> <?php echo $order_item->id ?> </p>
 
 <?php endforeach ?>
-<h1>Заполните место доставки</h1>
-<?php $f=ActiveForm::begin();?>
+<a href="<?=Url::to(['order/buy'])?>"class="btn btn-more">Заказать доставку</a>
+<!-- <h1>Заполните место доставки</h1>
+<?//php $f=ActiveForm::begin();?>
 
     <p>Укажите адрес доставки</p>
-    <?//=$f->field($model,'adress')->textInput() не работает?>
+    <?//php echo $f->field($order,'adress')->textInput() ?>
 
-<a href="<?=Url::to(['order/buy'])?>"class="btn btn-more">Заказать доставку на этот адрес</a>
-<?php ActiveForm::end();?>
+<a href="<?//=Url::to(['order/buy'])?>"class="btn btn-more">Заказать доставку на этот адрес</a>
+<?//php ActiveForm::end();?> -->
 
 
 

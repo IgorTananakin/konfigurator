@@ -48,4 +48,8 @@ class Order extends \yii\db\ActiveRecord
             'adress' => 'Adress',
         ];
     }
+    public function getOrderitem()
+    {
+        return $this->hasOne(Orderitem::className(), ['id' => 'order_id']);
+    } 
 }

@@ -9,5 +9,22 @@ use app\models\Assembly;
 
 <div>
 <h1>Личный кабинет</h1>
+<?php $form = ActiveForm::begin(['options' => ['class' => 'form-horizontal']]); ?>
 
+<?=$form->field($account,'username')->textInput()?>
+
+<?=$form->field($account,'surname')->textInput()?>
+
+<?=$form->field($account,'patronymic')->textInput()?>
+
+<?=$form->field($account,'email')->textInput()?>
+
+<?=$form->field($account,'phone')->textInput()?>
+
+
+
+
+<div>
+<button type="submit" class="btn btn-primary">Сохранить</button>
 </div>
+<?php $form=ActiveForm::end(); ?>

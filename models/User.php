@@ -9,6 +9,38 @@ use Yii;
 
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+
+  public function rules()
+  {
+      return [
+       [['email', 'username','patronymic','surname','phone'], 'safe'],
+      [['email','username','patronymic','surname','phone'],'required','message'=>'Не заполнено поле'],
+       ['email','email','message'=>'Email введён не верно'],
+       
+       
+        
+        //повторить регулярки они работают все пока не использую их раскоментировать если понадобятся
+      //  ['password','match','pattern'=>'{6,}$','message'=>'Пароль должен состоять минимум из 6 символов'],
+      //  ['phone', 'match', 'pattern' => '/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/', 'message' => 'Телефон должен содержать минимум 11 цифр, но не более 14. Разрешается использования + ( )' ],
+        
+      //  ['adress','string','min'=>3,'message'=>'Адрес введён не верно'],
+      // ['username','match','pattern'=>'/^[а-яА-ЯёЁa-zA]{2,}$/','message'=>'Имя введено не верно'],
+      //  ['surname','match','pattern'=>'/^[а-яА-ЯёЁa-zA]{2,}$/','message'=>'Фамилия введена не верно'],
+      //  ['patronymic','match','pattern'=>'/^[а-яА-ЯёЁa-zA]{2,}$/','message'=>'Отчество введено не верно'],
+      ];
+  }
+
+ 
+
+
+
+
+
+
+
+
+
+  //Регистрация не трогать работает
   //чтобы указать чтоя использую интерфейс слово implements поможет мне в этом
   //IdentityInterface название интерфейса
   public function setPassword($password)

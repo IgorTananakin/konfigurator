@@ -1,26 +1,27 @@
 <h1>Регистрация</h1>
 <?php
 use yii\widgets\ActiveForm;
-//use yii\helpers\Html;
+use yii\helpers\Html;
 
 ?>
 
-<?php
+<?php $form = ActiveForm::begin(['class'=>'form-horizontal']);?>
 
-$form=ActiveForm::begin(['class'=>'form-horizontal']);
-?>
+<?=$form->field($model,'username')->textInput();?>
+
+<?=$form->field($model,'surname')->textInput()?>
+
+<?=$form->field($model,'patronymic')->textInput()?>
 
 <?=$form->field($model,'email')->textInput(['autofocus'=>true])?>
 
 <?=$form->field($model,'password')->passwordInput()?>
 
-<?//=$form->field($model,'phone')->textInput()?>
+<?=$form->field($model,'phone')->textInput()?>
+<h2>Адресс доставки</h2>
+<?=$form->field($model,'adress')->textInput()?>
 
 <div>
 <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 </div>
-<?php
-$form=ActiveForm::end();
-
-
-?>
+<?php $form = ActiveForm::end();?>

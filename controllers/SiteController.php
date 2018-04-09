@@ -15,6 +15,8 @@ use app\models\Assembly;
 use yii\data\Pagination;
 use app\models\Signup;
 use app\models\Login;
+use app\models\User;
+//use app\models\NotFoundHttpException;
 
 
 
@@ -100,17 +102,7 @@ class SiteController extends Controller
             );
             
     }
-    public function actionAccount()
-    {
 
-        $message="Hello word ты на странице конфигуратора";
-
-        return $this->render('account',
-            array('message'=>$message,
-            )
-            );
-            
-    }
 
 
    
@@ -154,8 +146,63 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-	
-	
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // public function actionAccount()
+    // {
+
+    //     $account = new Signup();
+
+    //     return $this->render('account',
+    //         array('account'=>$account
+    //         )
+    //         );
+            
+    // }
+    
+    public function actionAccount()
+    {
+        $account = User::findOne(Yii::$app->user->identity->id);
+        // var_dump(User::findOne(Yii::$app->user->identity->id)); 
+        
+        if (!isset($account)) {
+            throw new NotFoundHttpException(404 ,'Пользователь не найден');
+        }
+       // $account->scenario = 'update';
+       
+        //var_dump($account);
+        //var_dump(Yii::$app->request->post());die;
+//var_dump(Yii::$app->request->post());die;
+
+        if ($account->load(Yii::$app->request->post()) ) {
+          
+            $isValid = $account->validate();
+        //var_dump(Yii::$app->request->post());die;
+//$account->save();
+            // $isValid = $profile->validate() && $isValid;
+            //var_dump($isValid);die;
+            //var_dump($account);die;
+            if ($isValid) {
+                $account->save(false);
+                // var_dump($isValid);die;
+               // var_dump($account);die;
+               // $account->save($account->email);
+                
+                return $this->redirect(['site/account','id' => Yii::$app->user->identity->id]);
+            }
+        }
+        $account->save();
+        return $this->render('account', [
+            'account' => $account
+        ]);
+    }
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public function actionSignup()
     {
         $model = new Signup();

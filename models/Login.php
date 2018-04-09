@@ -11,7 +11,7 @@ class Login extends Model//модель прокладка
     {
         return [
           [['email','password'],'required','message'=>'Не заполнено поле'],
-          ['email','email','message'=>'Email введён не верно'],
+          ['email','email'],
           ['email','validatePassword'],//метод для валидации
          // ['email','unique','targetClass'=>'app\models\User'],
          // ['password','string','min'=>6,'max'=>50],

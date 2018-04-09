@@ -13,16 +13,20 @@ class OrderController extends \yii\web\Controller
     {
         return $this->render('buy');
     }
+
+
     public function actionIndex()
     {
-        
         $orders = Order::find()->all();//обращаюсь не к объекту, а к таблице в базе и записываю в $orders
         $order_item = Orderitem::find()->all();
         return $this->render('index',
-        array('orders'=>$orders,
-        'orderitem'=>$order_item)
+        array('orders'=>$orders
+        )
     );
     }
+
+
+
     public function actionCreate()
     {
 
@@ -37,7 +41,7 @@ class OrderController extends \yii\web\Controller
         foreach($_SESSION['basket'] as $id) {
             $order_item = new OrderItem();
             $order_item->assembly_id = $id;
-            
+            $order_item->order_id = $order->id;//связываю таблицы по полям id order_id
             $order_item->save();
             
         }
