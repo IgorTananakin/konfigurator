@@ -20,10 +20,13 @@ class AdminController extends Controller
     
     public function beforeAction($action)
     {
+        //var_dump(Yii::$app->user->identity);die;
         $user = Yii::$app->user->identity;//обращаюсь к конкретному пользователю
         if ((isset( $user )) && $user->admin == 1)//isset( $user ) проверка на не залогининового пользователя
                                                 //$user->admin == 1 проверка на админа
+            
         {
+           /// var_dump("gfihgf");die;
             return parent::beforeAction($action);
             
         }

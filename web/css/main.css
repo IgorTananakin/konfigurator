@@ -6,6 +6,9 @@
 .del-item{
 	cursor: pointer;
 }
+.clear {
+	clear: both;
+}
 .more{color:#FF8000;}
 .btn-more {
 	color: #fff;

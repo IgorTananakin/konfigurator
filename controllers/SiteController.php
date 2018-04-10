@@ -16,6 +16,7 @@ use yii\data\Pagination;
 use app\models\Signup;
 use app\models\Login;
 use app\models\User;
+use app\models\Corpus;
 //use app\models\NotFoundHttpException;
 
 
@@ -89,22 +90,22 @@ class SiteController extends Controller
             );
             
     }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function actionConfigurator()
     {
 
-        $message="Hello word ты на странице конфигуратора";
+        
+        $corpus = Corpus::find()->all();
 
         return $this->render('configurator',
-            array('message'=>$message,
-            )
+            array('corpus'=>$corpus)
             );
             
     }
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
    
 
     /**
@@ -160,7 +161,10 @@ class SiteController extends Controller
     //         );
             
     // }
-    
+
+
+
+    //повторить
     public function actionAccount()
     {
         $account = User::findOne(Yii::$app->user->identity->id);
@@ -185,9 +189,6 @@ class SiteController extends Controller
             //var_dump($account);die;
             if ($isValid) {
                 $account->save(false);
-                // var_dump($isValid);die;
-               // var_dump($account);die;
-               // $account->save($account->email);
                 
                 return $this->redirect(['site/account','id' => Yii::$app->user->identity->id]);
             }

@@ -30,8 +30,8 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandLabel' => "Интернет магазин",
+        'brandUrl' => Url::to(['site/index']),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -46,9 +46,24 @@ AppAsset::register($this);
             ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
             ['label' => 'Корзина '/*.$count*/, 'url' => [Url::to(['basket/index'])]],
             
-            ['label' => 'Регистрация', 'url' => [Url::to(['site/signup'])]],
+            // ['label' => 'Регистрация', 'url' => [Url::to(['site/signup'])]],
             Yii::$app->user->isGuest ? (
+
+
+                [
+                    'label' => 'Регистрация/Войти',
+                    'url' => ['user'],
+                    'template' => '<a href="{url}">{label}<i class="fa fa-angle-down"></i></a>'."\n",
+                    'options' => [
+                    'class' => 'dropdown',
+                    ],
+                    'items' => [
+                    
+                ['label' => 'Регистрация', 'url' => ['site/signup']],
                 ['label' => 'Войти', 'url' => ['site/login']]
+                  
+                    ]
+                ]
             ) : (
                 '<li>'
                 . Html::beginForm(['site/logout'], 'post')

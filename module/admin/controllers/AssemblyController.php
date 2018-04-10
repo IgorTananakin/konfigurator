@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
 */
 class AssemblyController extends AdminController
 {
+   // public $layout = 'main';
     /**
      * @inheritdoc
      */

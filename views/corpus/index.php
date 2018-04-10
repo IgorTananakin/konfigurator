@@ -48,7 +48,7 @@ use app\models\Corpus;
         <p class="text-primary">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?></p>
         <p class="text-primary">Мощность <?php echo $corpusa->power;?></p>
 		    <p class="text-danger">Цена <?php echo $corpusa->price;?> руб</p>
-        <a href="<?//=\yii\helpers\Url::to(['corpus/view'])?>"class="btn btn-more">Подробнее</a>
+        <a href="<?=\yii\helpers\Url::to(['corpus/view'])?>"class="btn btn-more">Подробнее</a>
         <a href="<?//=\yii\helpers\Url::to(['basket/add','id'=>$assembly->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     
@@ -57,32 +57,6 @@ use app\models\Corpus;
 
 
 </div>
-
-
-
-<!-- <div class="col-md-9 ">
-<?php// foreach ($corpus as $key => $corpusa): ?>
-
-<?php// ?>
-
-
-
-    <div class="col-md-4">
-    <?php// if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php// endif?>
-        <h3>Корпус <?//php echo $corpusa->title?></h3>
-      	<img src="image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <p class="text-primary">Размер <?php// echo $corpusa->size;?></p>
-        <p class="text-primary">Размер под жёсткий диск <?php// echo $corpusa->size_hard_disc;?></p>
-        <p class="text-primary">Мощность <?//php echo $corpusa->power;?></p>
-		    <p class="text-danger">Цена <?//php echo $corpusa->price;?> руб</p>
-        <a href="<?//=\yii\helpers\Url::to(['corpus/view'])?>"class="btn btn-more">Подробнее</a>
-        <a href="<?//=\yii\helpers\Url::to(['basket/add','id'=>$assembly->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
-    </div>
-    
-<?//php endforeach ?>
 
 
 

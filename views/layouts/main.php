@@ -30,8 +30,8 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandLabel' => "Админка магазина",
+        'brandUrl' => Url::to(['admin/index']),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -40,8 +40,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
-            ['label' => 'Конфигуратор', 'url' => [Url::to(['site/configurator'])]],
+           // ['label' => 'Сборки', 'url' => [Url::to(['site/index'])]],
+           // ['label' => 'Конфигуратор', 'url' => [Url::to(['site/configurator'])]],
             
 
            // ['label' => 'Межкомнатные двери', 'url' => 'category/2'],
@@ -68,9 +68,9 @@ AppAsset::register($this);
             ],
 
 
-            ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
-		   // ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
-			['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
+           // ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
+		   
+			//['label' => 'Корзина', 'url' => [Url::to(['basket/index'])]],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
