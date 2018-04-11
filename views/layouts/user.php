@@ -42,7 +42,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Сборки', 'url' => [Url::to(['index'])]],
-            ['label' => 'Конфигуратор', 'url' => ['configurator']],
+            ['label' => 'Конфигуратор', 'url' => ['corpus/index']],
             ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
             ['label' => 'Корзина '/*.$count*/, 'url' => [Url::to(['basket/index'])]],
             

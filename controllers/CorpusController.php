@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 use app\models\Corpus;
+use Yii;
 
 class CorpusController extends \yii\web\Controller
 {
@@ -19,5 +20,6 @@ class CorpusController extends \yii\web\Controller
             'corpus' => Corpus::findOne($id),//передаю id конкретного корпуса
         ]);
     }
+
 
 }

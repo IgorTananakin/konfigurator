@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\models\Corpus;
+use app\models\Powersupply;
 /* @var $this yii\web\View */
 /* @var $model app\models\Assembly */
 /* @var $form ActiveForm */
@@ -17,21 +17,23 @@ use app\models\Corpus;
   <ul class="nav">
     <li><a href="<?=\yii\helpers\Url::to(['corpus/index'])?>">Корпус</a></li>
     <li><a href="<?=\yii\helpers\Url::to(['processor/index'])?>">Процессор</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['coolingsystem/index'])?>">Материнская плата</a></li>
+    <li><a href="#">Материнская плата</a></li>
     <li><a href="#">Оперативная память</a></li>
-    <li><a href="#">Жёсткие диски</a></li>
+    <li><a href="<?=\yii\helpers\Url::to(['harddisk/index'])?>">Жёсткие диски</a></li>
     <li><a href="#">Звуковая карта</a></li>
     <li><a href="#">Видео карта</a></li>
     <li><a href="#">Сетевая карта</a></li>
     <li><a href="#">CD/DVD привод</a></li>
-    <li><a href="#"></a></li>
+    <li><a href="<?=\yii\helpers\Url::to(['coolingsystem/index'])?>">Кулер</a></li>
+    <li><a href="<?=\yii\helpers\Url::to(['powersupply/index'])?>">Блок питания</a></li>
+
 
   </ul>
 </nav>
 </div>
 
 <div class="col-md-9 ">
-<?php foreach ($corpus as $key => $corpusa): ?>
+<?php foreach ($powersupply as $key => $powersupplies): ?>
 
 <?php ?>
 
@@ -41,16 +43,16 @@ use app\models\Corpus;
     <?php if ($key % 3 == 0): ?>
     <div class="clearfix"></div>
 <?php endif?>
-<?php $corpusa->id?>
-        <h3>Корпус <?php echo $corpusa->title?></h3>
+<?php $powersupplies->id?>
+        <h3>Корпус <?php echo $powersupplies->title?></h3>
       	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
         <h5>Характеристики</h5>
-        <p class="text-primary">Размер <?php echo $corpusa->size;?></p>
-        <p class="text-primary">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?></p>
-        <p class="text-primary">Мощность <?php echo $corpusa->power;?></p>
-		    <p class="text-danger">Цена <?php echo $corpusa->price;?> руб</p>
-        <a href="<?=\yii\helpers\Url::to(['corpus/view','id'=>$corpusa->id]) ?>"class="btn btn-more">Подробнее</a>
-        <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Corpus','id'=>$corpusa->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
+        <!-- добавить описание -->
+
+
+
+        <!--             -->
+        <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Powersupply','id'=>$powersupplies->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     
 <?php endforeach ?>
