@@ -2,34 +2,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Coolingsystem;
-/* @var $this yii\web\View */
-/* @var $model app\models\Assembly */
-/* @var $form ActiveForm */
-?>
+use app\components\MenuWidget; ?>
 
-
-
-<div class="col-md-3 ">
-<nav class="configurator_menu">
-<h3>Меню для подбора комплектующих</h3>
-<p class="text-danger">Цена от</p>
-<p class="text-danger">Цена до</p>
-  <ul class="nav">
-    <li><a href="<?=\yii\helpers\Url::to(['corpus/index'])?>">Корпус</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['processor/index'])?>">Процессор</a></li>
-    <li><a href="#<?=\yii\helpers\Url::to(['coolingsystem/index'])?>">Материнская плата</a></li>
-    <li><a href="#">Оперативная память</a></li>
-    <li><a href="#">Жёсткие диски</a></li>
-    <li><a href="#">Звуковая карта</a></li>
-    <li><a href="#">Видео карта</a></li>
-    <li><a href="#">Сетевая карта</a></li>
-    <li><a href="#">CD/DVD привод</a></li>
-    <li><a href="#">Кулер</a></li>
-    <li><a href="#"></a></li>
-
-  </ul>
-</nav>
-</div>
+<?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
 <?php foreach ($coolingsystem as $key => $coolingsystems): ?>

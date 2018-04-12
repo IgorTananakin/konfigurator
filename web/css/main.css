@@ -3,6 +3,17 @@
 	/* position:relative	; */
 
 }
+.menutext{
+	color:#4f4646;
+	font-size:15px;
+}
+.menu_item{
+color:#4f4646;
+/* font-size:15px; */
+align:center;
+font-family:verdana;
+}
+
 .del-item{
 	cursor: pointer;
 }

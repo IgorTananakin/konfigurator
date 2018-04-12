@@ -2,62 +2,41 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Corpus;
+use app\components\MenuWidget;
 /* @var $this yii\web\View */
 /* @var $model app\models\Assembly */
 /* @var $form ActiveForm */
 ?>
 
-
-
-<div class="col-md-3 ">
-<nav class="configurator_menu">
-<h3>Меню для подбора комплектующих</h3>
-<p class="text-danger">Цена от</p>
-<p class="text-danger">Цена до</p>
-  <ul class="nav">
-    <li><a href="<?=\yii\helpers\Url::to(['corpus/index'])?>">Корпус</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['processor/index'])?>">Процессор</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['coolingsystem/index'])?>">Материнская плата</a></li>
-    <li><a href="#">Оперативная память</a></li>
-    <li><a href="#">Жёсткие диски</a></li>
-    <li><a href="#">Звуковая карта</a></li>
-    <li><a href="#">Видео карта</a></li>
-    <li><a href="#">Сетевая карта</a></li>
-    <li><a href="#">CD/DVD привод</a></li>
-    <li><a href="#"></a></li>
-
-  </ul>
-</nav>
-</div>
+<?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
-<?php foreach ($corpus as $key => $corpusa): ?>
+      
+            <?php foreach ($corpus as $key => $corpusa): ?>
 
-<?php ?>
-
-
-
-    <div class="col-md-4">
-    <?php if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php endif?>
-<?php $corpusa->id?>
-        <h3>Корпус <?php echo $corpusa->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <p class="text-primary">Размер <?php echo $corpusa->size;?></p>
-        <p class="text-primary">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?></p>
-        <p class="text-primary">Мощность <?php echo $corpusa->power;?></p>
-		    <p class="text-danger">Цена <?php echo $corpusa->price;?> руб</p>
-        <a href="<?=\yii\helpers\Url::to(['corpus/view','id'=>$corpusa->id]) ?>"class="btn btn-more">Подробнее</a>
-        <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Corpus','id'=>$corpusa->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
-    </div>
-    
-<?php endforeach ?>
+                <div class="col-md-4">
+                <?php if ($key % 3 == 0): ?>
+                <div class="clearfix"></div>
+            <?php endif?>
+            <div class="thumbnail">
+            <?php $corpusa->id?>
+                    <h3>Корпус <?php echo $corpusa->title?></h3>
+                    <img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
+                    <h5 >Характеристики</h5>
+                    <p class="">Размер <?php echo $corpusa->size;?> </p>
+                    <p class="text-primary">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?> мм</p>
+                    <p class="text-primary">Мощность <?php echo $corpusa->power;?> Вт</p>
+                    <p class="text-danger">Цена <?php echo $corpusa->price;?> руб</p>
+                    <a href="<?=\yii\helpers\Url::to(['corpus/view','id'=>$corpusa->id]) ?>"class="btn btn-more">Подробнее</a>
+                    <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Corpus','id'=>$corpusa->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
+                </div>
+                </div>
+            <?php endforeach ?>
 
 
 
-</div>
+              
+        </div>
 
 
 

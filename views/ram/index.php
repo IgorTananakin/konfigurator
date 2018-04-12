@@ -2,35 +2,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Ram;
-/* @var $this yii\web\View */
-/* @var $model app\models\Assembly */
-/* @var $form ActiveForm */
-?>
+use app\components\MenuWidget; ?>
 
-
-
-<div class="col-md-3 ">
-<nav class="configurator_menu">
-<h3>Меню для подбора комплектующих</h3>
-<p class="text-danger">Цена от</p>
-<p class="text-danger">Цена до</p>
-  <ul class="nav">
-    <li><a href="<?=\yii\helpers\Url::to(['corpus/index'])?>">Корпус</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['processor/index'])?>">Процессор</a></li>
-    <li><a href="#">Материнская плата</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['ram/index'])?>">Оперативная память <?php if(isset($_SESSION['assembly']['Ram'])){ echo $_SESSION['assembly']['Ram']['title'];}?></a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['harddisk/index'])?>">Жёсткие диски</a></li>
-    <li><a href="#">Звуковая карта</a></li>
-    <li><a href="#">Видео карта</a></li>
-    <li><a href="#">Сетевая карта</a></li>
-    <li><a href="#">CD/DVD привод</a></li>
-    <li><a href="<?=\yii\helpers\Url::to(['coolingsystem/index'])?>">Кулер</a></li>
-    <li><a href="#">Блок питания</a></li>
-
-
-  </ul>
-</nav>
-</div>
+<?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
 <?php foreach ($ram as $key => $rams): ?>
@@ -44,7 +18,7 @@ use app\models\Ram;
     <div class="clearfix"></div>
 <?php endif?>
 <?php $rams->id?>
-        <h3>Корпус <?php echo $rams->title?></h3>
+        <h3>Оперативная память <?php echo $rams->title?></h3>
       	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
         <h5>Характеристики</h5>
         <!-- добавить описание -->
