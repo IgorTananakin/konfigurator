@@ -1,7 +1,9 @@
 <?php
 
 namespace app\models;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
+use yii\db\ActiveRecord;
 use Yii;
 
 /**
@@ -15,6 +17,25 @@ use Yii;
  */
 class Order extends \yii\db\ActiveRecord
 {
+
+
+
+        //проведение для сохранения даты
+        public function behaviors()
+        {
+            return [
+                'timestamp' => [
+                    'class' => TimestampBehavior::className(),
+                    'attributes' => [
+                        ActiveRecord::EVENT_BEFORE_INSERT => ['order_date'],
+                       // ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                    ],
+                    'value' => new Expression('NOW()'),
+    
+                ],
+            ];
+        }
+        //////////////////////////////////
     /**
      * @inheritdoc
      */
@@ -30,7 +51,8 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             ['user_id', 'required'],
-            [['status', 'order_date', 'user_id'], 'integer'],
+            [['status',  'user_id'], 'integer'],
+            [['order_date'],'date'],
             [['adress'], 'string', 'max' => 50],
         ];
     }
@@ -48,8 +70,16 @@ class Order extends \yii\db\ActiveRecord
             'adress' => 'Adress',
         ];
     }
-    public function getOrderitem()
+    public function getOrderitems()
     {
-        return $this->hasOne(Orderitem::className(), ['id' => 'order_id']);
+        return $this->hasMany(Orderitem::className(), ['id' => 'order_id']);
     } 
+
+
+    public function getStatusStr($order)
+    {
+        if ($order->status == 1)  $status="Доставляется";  
+        if ($order->status == 0)  $status="Заказан"; 
+        return $status;
+    }
 }

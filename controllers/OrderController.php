@@ -4,11 +4,12 @@ namespace app\controllers;
 use app\models\User;
 use app\models\Order;
 use app\models\Orderitem;
-
+//use yii\web\Controller;
 use Yii;
 
 class OrderController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionBuy()
     {
         return $this->render('buy');
@@ -17,10 +18,12 @@ class OrderController extends \yii\web\Controller
 
     public function actionIndex()
     {
+       // $this->layout = '//layouts/user';
         $orders = Order::find()->all();//обращаюсь не к объекту, а к таблице в базе и записываю в $orders
         $order_item = Orderitem::find()->all();
         return $this->render('index',
-        array('orders'=>$orders
+        array('orders'=>$orders,
+        'order_item'=>$order_item
         )
     );
     }
@@ -33,8 +36,8 @@ class OrderController extends \yii\web\Controller
         $order = new Order();
         $order->user_id = Yii::$app->user->id;//записываю в объект id текущего пользователя
         $order->status = 1;
-        //1 заказ добавлен в базу
-        //2 место доставки указано верно
+        //1 Добавлен
+        //2 Доставляется
         //3 заказ отправлен
         $order->save();
         

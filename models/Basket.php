@@ -7,6 +7,11 @@ use Yii;
 
 class Basket extends \yii\db\ActiveRecord
 {
+
+
+
+
+
     /**
      * @inheritdoc
      */

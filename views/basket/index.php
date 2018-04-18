@@ -44,6 +44,8 @@ use yii\helpers\Url;
     <?php } ?>
 
 
+    
+
     <?php if (Yii::$app->user->isGuest): ?>
         <a href="<?php echo Url::to(['site/login'])?>"  class="btn btn-primary">Авторизуйтесь для оформления заказа</a>
     <?php  else: ?>
