@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
 
 class BasketController extends SiteController
 {
+   // public $layout = 'user';
     /**
      * @inheritdoc
      */
@@ -59,6 +60,12 @@ public function actionDel()
     $id = Yii::$app->request->get('id');
     unset($_SESSION['basket'][$id]);
     return $this->redirect(['basket/index']);   
+}
+public function actionClear()
+{
+    // $id = Yii::$app->request->get('id');
+    unset($_SESSION['basket']);//чищю сессию конкретно для корзины
+     return $this->redirect(['basket/index']);   
 }
 
 // public function actionAdd()
@@ -162,12 +169,12 @@ public function actionDel()
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
+    // public function actionDelete($id)
+    // {
+    //     $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-    }
+    //     return $this->redirect(['index']);
+    // }
 
     /**
      * Finds the Basket model based on its primary key value.

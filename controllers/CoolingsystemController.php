@@ -6,6 +6,7 @@ use Yii;
 
 class CoolingsystemController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $coolingsystem = Coolingsystem::find()->all();

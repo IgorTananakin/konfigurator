@@ -6,6 +6,7 @@ use Yii;
 
 class MotherboardController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         if (isset($_SESSION['assembly'])){

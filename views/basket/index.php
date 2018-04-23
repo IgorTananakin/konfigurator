@@ -3,7 +3,7 @@ use yii\widgets\ActiveForm;
 use app\models\Assembly;
 use yii\helpers\Url;
 ?>
-<?php if(!empty($_SESSION['basket'])){?>
+<?php if(!empty($_SESSION['basket'])){ //проверка на существование basket empty - определяет, установлена ли переменная?>
 <div class="table-responsive">
     <table class="table table-hover table-striped">
         <thead>
@@ -16,14 +16,14 @@ use yii\helpers\Url;
             </tr>
         </thead>
         
-<?php $result = ($_SESSION['basket']);//убираю повторения ?>
+<?php $result = ($_SESSION['basket']);//убираю повторения временно убрал?>
 <?php foreach($result as $id): ?>
     <?php $assembly = Assembly::findOne($id) ?> 
 
         <tbody>
             <tr>
                 <td><?php echo $assembly->id ?></td>
-                <td><?php echo $assembly->ram->title ?></td>
+                <td><?php echo $assembly->title ?></td>
                 <td><?php echo $assembly->id ?></td>
                 <?php $sum = new Assembly();/**/?>
                 <td><?php echo $sum->getSum($assembly);?></td>
@@ -40,8 +40,10 @@ use yii\helpers\Url;
     </table>
     
     <p>Итого на сумму: </p>
-    <button>Очистить корзину</button>
-    <?php } ?>
+
+     <a href="<?php  echo Url::to(['basket/clear'])?>" class="btn btn-primary">Очистить корзину</a> 
+   
+    
 
 
     
@@ -49,9 +51,20 @@ use yii\helpers\Url;
     <?php if (Yii::$app->user->isGuest): ?>
         <a href="<?php echo Url::to(['site/login'])?>"  class="btn btn-primary">Авторизуйтесь для оформления заказа</a>
     <?php  else: ?>
-        <a href="<?php echo Url::to(['order/create'])?>" class="btn btn-primary">Оформить заказ</a>
-    <?php endif ?>
     
-   
+    
+        <a href="<?php echo Url::to(['order/create'])?>" class="btn btn-primary">Оформить заказ</a>
+        
+    <?php endif ?>
+    <?php } else if(empty($_SESSION['basket'])){ //конец проверки на существование basket ?>
+
+        <h2>Корзина пуста закажите товар </h2>
+        <a href="<?php echo Url::to(['site/index'])?>"  class="btn btn-primary">Перейти на страницу выбора товара</a>
+    
+    <?php } ?>
+
+
+
+    
 </div>
 

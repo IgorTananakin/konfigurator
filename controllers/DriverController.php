@@ -6,6 +6,7 @@ use Yii;
 
 class DriverController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $driver = Driver::find()->all();

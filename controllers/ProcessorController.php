@@ -7,6 +7,7 @@ use Yii;
 
 class ProcessorController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
     //     if ($_SESSION['assembly']['Processor']['socket_id'] == $_SESSION['assembly']['Motherboard']['socket_id'])

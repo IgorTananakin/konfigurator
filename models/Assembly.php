@@ -89,6 +89,7 @@ class Assembly extends \yii\db\ActiveRecord
         
         return $count;
     }
+    
     public function getDel($assembly)
     {
         $id = Yii::$app->request->get('id');

@@ -6,6 +6,7 @@ use Yii;
 
 class CorpusController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $corpus = Corpus::find()->all();

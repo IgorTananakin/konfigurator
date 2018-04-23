@@ -41,9 +41,11 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Сборки', 'url' => [Url::to(['index'])]],
+            ['label' => 'Сборки', 'url' => [Url::to(['site/index'])]],
             ['label' => 'Конфигуратор', 'url' => [Url::to(['corpus/index'])]],
-            ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
+
+            // ['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
+           
             ['label' => 'Корзина '/*.$count*/, 'url' => [Url::to(['basket/index'])]],
             
             // ['label' => 'Регистрация', 'url' => [Url::to(['site/signup'])]],
@@ -65,14 +67,24 @@ AppAsset::register($this);
                     ]
                 ]
             ) : (
+                //['label' => 'Личный кабинет', 'url' => [Url::to(['site/account'])]],
                 '<li>'
+                . Html::beginForm(['site/account'], 'post')
+                . Html::submitButton(
+                    'Личный кабинет',
+                     ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                 . '</li>'
+                 
+                . '<li>'
                 . Html::beginForm(['site/logout'], 'post')
                 . Html::submitButton(
                     'Выйти ' . Yii::$app->user->identity->email,//отбражаю email пользователя или клиента
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
-                . '</li>'
+                 . '</li>'
             )
         ],
     ]);

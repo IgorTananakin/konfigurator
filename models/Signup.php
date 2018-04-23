@@ -49,4 +49,17 @@ class Signup extends Model
       return $user->save();
   }
 
+
+  public function attributeLabels()
+  {
+      return [
+          'id' => 'ID',
+          'username' => 'Имя',
+          'surname' => 'Фамилия',
+          'patronymic' => 'Отчество',
+          'email' => 'Email',
+          'password' => 'Пароль'
+      ];
+  }
+
 }

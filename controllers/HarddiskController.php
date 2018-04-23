@@ -6,6 +6,7 @@ use Yii;
 
 class HarddiskController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $harddisk = Harddisk::find()->all();

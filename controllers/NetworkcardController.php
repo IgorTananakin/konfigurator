@@ -6,6 +6,7 @@ use Yii;
 
 class NetworkcardController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $networkcard = Networkcard::find()->all();

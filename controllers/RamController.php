@@ -6,6 +6,7 @@ use Yii;
 
 class RamController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $ram = Ram::find()->all();

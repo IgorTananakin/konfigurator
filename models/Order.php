@@ -4,6 +4,7 @@ namespace app\models;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
+use app\models\Assembly;
 use Yii;
 
 /**
@@ -82,4 +83,25 @@ class Order extends \yii\db\ActiveRecord
         if ($order->status == 0)  $status="Заказан"; 
         return $status;
     }
+
+
+    /////////////////////////////////////////////////
+    public function getSumAll()
+    {
+        $sumall = 0;
+        $order_itemss = Assembly::find()->all();
+        $order_items = OrderItem::find()->all();
+        //////////////
+      //  var_dump($order_itemss);
+        ///////////////////
+         foreach ($order_items as $order_itemss)
+         {
+            // $sumall = $sumall + $order_itemss->getSum();
+         }
+        
+        
+        return $sumall;
+    }
+    ///////////////////////////////////////////////
+
 }

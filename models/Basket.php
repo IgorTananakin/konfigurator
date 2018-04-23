@@ -83,4 +83,14 @@ class Basket extends \yii\db\ActiveRecord
     echo ($_SESSION['basket'][$assembly-id]);die;
     
      }
+     public function clearToBasket($assembly,$qty=1)
+     {
+         // echo "jrvndfkbdfk";die;
+         // var_dump( "Worked!");die;
+          
+               $_SESSION['basket'][$assembly->id]=[];
+           
+     echo ($_SESSION['basket'][$assembly-id]);die;
+     
+      }
 }

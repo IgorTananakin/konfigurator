@@ -45,4 +45,6 @@ class OrderItem extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Assembly::className(), ['id' => 'assembly_id']);
     } 
+
+ 
 }

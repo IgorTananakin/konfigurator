@@ -6,6 +6,7 @@ use Yii;
 
 class SoundcardController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $soundcard = Soundcard::find()->all();

@@ -46,7 +46,7 @@ use yii\db\Expression;
             <?php endforeach?>
             
             </td>
-                <td> <?php  echo $sum_all ?> руб </td>
+                <td> <?php  echo $sum_all ?> <?php  //echo $order->getSumAll(); ?> руб </td>
                 <td>
                     <?php  echo $order->order_date ?>
                   
@@ -66,7 +66,10 @@ use yii\db\Expression;
 <?php endforeach ?>
 </table>
 </div>
-<a href="<?=Url::to(['order/buy'])?>"class="btn btn-more">Заказать доставку</a>
+<h3>Ваш заказ успешно оформлен ждите доставки</h3>
+    <a href="<?=Url::to(['site/index'])?>"class="btn btn-primary">Вернуться на главную страницу</a>
+
+
 <!-- <h1>Заполните место доставки</h1>
 <?//php $f=ActiveForm::begin();?>
 

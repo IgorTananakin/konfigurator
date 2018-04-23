@@ -46,10 +46,13 @@ class OrderController extends \yii\web\Controller
             $order_item->assembly_id = $id;
             $order_item->order_id = $order->id;//связываю таблицы по полям id order_id
             $order_item->save();
+          
             
         }
-
-        return $this->redirect(['order/index']);  
+        
+        unset($_SESSION['basket']);//чищю сессию конкретно для корзины
+        return $this->redirect(['order/index']); 
+        
     }
 
 }

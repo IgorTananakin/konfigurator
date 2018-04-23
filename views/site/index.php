@@ -24,7 +24,7 @@ use app\models\Assembly;
 	
 
 	
-	<img src="/uploads/CorpusController/korpis1.jpg" class="button12"alt="картинка сборки"/>
+	<img src="/uploads/CorpusController/<?=$assembly->corpus->title?>.jpg" class="button12"alt="картинка сборки"/>
 		<p class="text-primary">Процессор:<small><?=$assembly->processor->title;?></small></p>
 		
 		
@@ -38,7 +38,7 @@ use app\models\Assembly;
 	
 		<p class="text-primary">Видео карта: <small><?=$assembly->videocard->title?></small></p>
 		<?php $sum = new Assembly();?>
-		<p class="text-danger">Цена <?php echo $sum->getSum($assembly);?></p>
+		<p class="text-danger">Цена <?php echo $sum->getSum($assembly);?> руб</p>
 		<a href="<?=\yii\helpers\Url::to(['assembly/view','id'=>$assembly->id])?>"class="btn btn-more">Подробнее</a>
 		
 		<a href="<?=\yii\helpers\Url::to(['basket/add','id'=>$assembly->id])?>" data-id="<?=$assembly->id?>" class="btn btn-primary add-to-basket">В корзину</a>

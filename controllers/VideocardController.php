@@ -6,6 +6,7 @@ use Yii;
 
 class VideocardController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $videocard = Videocard::find()->all();

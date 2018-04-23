@@ -2,57 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Videocard;
-/* @var $this yii\web\View */
-/* @var $model app\models\Assembly */
-/* @var $form ActiveForm */
+use app\components\MenuWidget;
 ?>
 
 
-
-<div class="col-md-3 ">
-<nav class="configurator_menu">
-<h3>Меню для подбора комплектующих</h3>
-<p class="text-danger">Цена от</p>
-<p class="text-danger">Цена до</p>
-  <ul class="nav">
-    <li>
-        <a href="<?=\yii\helpers\Url::to(['corpus/index'])?>">
-              Корпус <?php if(isset($_SESSION['assembly']['Corpus'])){ echo $_SESSION['assembly']['Corpus']['title'];}?>
-        </a>
-    </li>
-    <li>
-          <a href="<?=\yii\helpers\Url::to(['processor/index'])?>">
-                Процессор <?php if(isset($_SESSION['assembly']['Processor'])){ echo $_SESSION['assembly']['Processor']['title'];}?>
-          </a>
-    </li>
-    <li><a href="#">Материнская плата</a></li>
-
-    <li>
-        <a href="<?=\yii\helpers\Url::to(['ram/index'])?>">
-                Оперативная память <?php if(isset($_SESSION['assembly']['Ram'])){ echo $_SESSION['assembly']['Ram']['title'];}?>
-        </a>
-    </li>
-
-    <li><a href="<?=\yii\helpers\Url::to(['harddisk/index'])?>">Жёсткие диски</a></li>
-    <li><a href="#">Звуковая карта</a></li>
-    <li>
-        <a href="<?=\yii\helpers\Url::to(['videocard/index'])?>">
-        Видео карта<?php if(isset($_SESSION['assembly']['Videocard'])){ echo $_SESSION['assembly']['Videocard']['title'];}?>
-        </a>
-        </li>
-    <li><a href="#">Сетевая карта</a></li>
-    <li><a href="#">CD/DVD привод</a></li>
-    <li>
-        <a href="<?=\yii\helpers\Url::to(['coolingsystem/index'])?>">
-                Кулер
-        </a>
-    </li>
-    <li><a href="#">Блок питания</a></li>
-
-
-  </ul>
-</nav>
-</div>
+<?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
 <?php foreach ($videocard as $key => $videocards): ?>

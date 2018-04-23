@@ -6,6 +6,7 @@ use Yii;
 
 class PowersupplyController extends \yii\web\Controller
 {
+    public $layout = 'user';
     public function actionIndex()
     {
         $powersupply = Powersupply::find()->all();
