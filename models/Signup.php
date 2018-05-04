@@ -58,7 +58,8 @@ class Signup extends Model
           'surname' => 'Фамилия',
           'patronymic' => 'Отчество',
           'email' => 'Email',
-          'password' => 'Пароль'
+          'password' => 'Пароль',
+          'phone' => 'Телефон'
       ];
   }
 

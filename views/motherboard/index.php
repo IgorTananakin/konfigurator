@@ -22,14 +22,17 @@ use app\components\MenuWidget; ?>
     <div class="clearfix"></div>
 <?php endif?>
 <?php $motherboards->id?>
-        <h3>Материнская плата <?php echo $motherboards->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
+        <h4>Материнская плата <?php echo $motherboards->title?></h4>
 
-
-
-        <!--             -->
+        <img src="/uploads/MotherboardController/<?=$motherboards->title?>.jpg" class="button12"alt="картинка материнской платы"/>
+                    
+        <p class="text_property">Графическая схема <?php echo $motherboards->graphical_scheme;?> </p>
+        <p class="text_property">Количество PCI <?php echo $motherboards->pci_count;?> </p>
+        <p class="text_property">Мощность <?php echo $motherboards->power;?> Вт</p>
+                   
+        <p class="price">Цена <?php echo $motherboards->price;?> руб</p>
+                    
+        <a href="<?=\yii\helpers\Url::to(['motherboard/view','id'=>$motherboards->id]) ?>"class="btn btn-more">Подробнее</a>
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Motherboard','id'=>$motherboards->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

@@ -18,14 +18,17 @@ use app\components\MenuWidget; ?>
     <div class="clearfix"></div>
 <?php endif?>
 <?php $rams->id?>
-        <h3>Оперативная память <?php echo $rams->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
+        <h4>Оперативная память <?php echo $rams->title?></h4>
 
-
-
-        <!--             -->
+        <img src="/uploads/CorpusController/<?=$rams->title?>.jpg" class="button12"alt="картинка оперативная память"/>
+                    
+        <p class="text_property">Производитель <?php echo $rams->manufacturer;?> мм</p>
+        <p class="text_property">Частота <?php echo $rams->frequency;?> мм</p>
+        <p class="text_property">Мощность <?php echo $rams->power;?> Вт</p>
+                   
+        <p class="price">Цена <?php echo $rams->price;?> руб</p>
+                    
+        <a href="<?=\yii\helpers\Url::to(['ram/view','id'=>$rams->id]) ?>"class="btn btn-more">Подробнее</a>
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Ram','id'=>$rams->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

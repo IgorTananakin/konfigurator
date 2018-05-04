@@ -61,11 +61,11 @@ class Processor extends \yii\db\ActiveRecord
             'socket_id' => 'Socket',
             'price' => 'Цена',
             'frequency' => 'Частота',
-            'digit_capacity' => 'Digit Capacity',
+            'digit_capacity' => 'Разрядность',
             'keh_memory' => 'Кеш память',
-            'load' => 'Load',
+            'load' => 'Нагрузка',
             'power' => 'Мощность',
-            //'image' => 'Image',
+            'image' => 'Изображение',
         ];
     }
     public function getSocket()

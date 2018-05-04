@@ -19,14 +19,26 @@ use app\components\MenuWidget;
                 <div class="clearfix"></div>
             <?php endif?>
             <div class="thumbnail">
-            <?php $corpusa->id?>
-                    <h3>Корпус <?php echo $corpusa->title?></h3>
-                    <img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-                    <h5 >Характеристики</h5>
-                    <p class="">Размер <?php echo $corpusa->size;?> </p>
-                    <p class="text-primary">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?> мм</p>
-                    <p class="text-primary">Мощность <?php echo $corpusa->power;?> Вт</p>
-                    <p class="text-danger">Цена <?php echo $corpusa->price;?> руб</p>
+                <?php $corpusa->id?>
+                <h4>Корпус <?php echo $corpusa->title?></h4>
+
+                
+
+                <?php if ($corpusa->image == ''): ?>
+                    <img src="/uploads/фото отсутвует.jpg" />
+                <?php else: ?>
+                <img src="/uploads/CorpusController/thumbnail-200x200/<?=$corpusa->image?>" class="button12"alt="ошибка"/>
+                <?php endif; ?>
+
+
+
+              
+                    <p class="text_property">Размер <?php echo $corpusa->size;?> мм</p>
+                    <p class="text_property">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?> мм</p>
+                    <p class="text_property">Мощность <?php echo $corpusa->power;?> Вт</p>
+                   
+                    <p class="price">Цена <?php echo $corpusa->price;?> руб</p>
+                    
                     <a href="<?=\yii\helpers\Url::to(['corpus/view','id'=>$corpusa->id]) ?>"class="btn btn-more">Подробнее</a>
                     <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Corpus','id'=>$corpusa->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
                 </div>

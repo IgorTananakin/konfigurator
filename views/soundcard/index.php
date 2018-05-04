@@ -18,14 +18,14 @@ use app\components\MenuWidget; ?>
     <div class="clearfix"></div>
 <?php endif?>
 <?php $soundcards->id?>
-        <h3>Звуковая карта <?php echo $soundcards->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
-
-
-
-        <!--             -->
+        <h4>Звуковая карта <?php echo $soundcards->title?></h4>
+                <img src="/uploads/SoundcardController/<?=$soundcards->title?>.jpg" class="button12"alt="картинка сборки"/>
+                    
+                    <p class="text_property">Мощность <?php echo $soundcards->power;?> Вт</p>
+                   
+                    <p class="price">Цена <?php echo $soundcards->price;?> руб</p>
+                    
+        <a href="<?=\yii\helpers\Url::to(['soundcard/view','id'=>$soundcards->id]) ?>"class="btn btn-more">Подробнее</a>
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Videocard','id'=>$soundcards->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

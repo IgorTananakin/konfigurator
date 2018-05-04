@@ -18,14 +18,16 @@ use app\components\MenuWidget; ?>
     <div class="clearfix"></div>
 <?php endif?>
 <?php $coolingsystems->id?>
-        <h3>Корпус <?php echo $coolingsystems->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
 
+        <h4>Кулер <?php echo $coolingsystems->title?></h4>
 
-
-        <!--             -->
+        <img src="/uploads/CoolingsystemController/<?=$coolingsystems->title?>.jpg" class="button12"alt="картинка кулера"/>
+                    
+        <p class="text_property">Мощность <?php echo $coolingsystems->power;?> Вт</p>
+                   
+        <p class="price">Цена <?php echo $coolingsystems->price;?> руб</p>
+                    
+        <a href="<?=\yii\helpers\Url::to(['coolingsystem/view','id'=>$coolingsystems->id]) ?>"class="btn btn-more">Подробнее</a>
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Сoolingsystem','id'=>$coolingsystems->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

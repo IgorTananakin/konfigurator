@@ -39,6 +39,14 @@ class Login extends Model//модель прокладка
         return User::findOne(['email'=>$this->email]);
         //User::findOne(['email'=>$this->email]); совершаю поиск по email
     }
+    public function attributeLabels()
+    {
+        return [
+            'email' => 'Email',
+            'password' => 'Пароль',
+
+        ];
+    }
     
 
 }

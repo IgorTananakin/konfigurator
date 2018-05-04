@@ -20,14 +20,16 @@ use app\components\MenuWidget;
     <div class="clearfix"></div>
 <?php endif?>
 <?php $videocards->id?>
-        <h3>Видеокарта <?php echo $videocards->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
+        <h4>Видеокарта <?php echo $videocards->title?></h4>
+        <img src="/uploads/VideocardController/<?=$videocards->title?>.jpg" class="button12"alt="картинка видеокарты"/>
 
-
-
-        <!--             -->
+        <p class="text_property">Графическая схема <?php echo $videocards->graphical_scheme;?> </p>
+        <p class="text_property">Видеоконтроллер <?php echo $videocards->video_controler;?> </p>
+        <p class="text_property">Мощность <?php echo $videocards->power?> Вт</p>
+                   
+        <p class="price">Цена <?php echo $videocards->price;?> руб</p>
+        
+        <a href="<?=\yii\helpers\Url::to(['videocard/view','id'=>$videocards->id]) ?>"class="btn btn-more">Подробнее</a>
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Videocard','id'=>$videocards->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

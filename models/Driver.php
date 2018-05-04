@@ -39,9 +39,9 @@ class Driver extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'title', 'price', 'size', 'power'], 'required','message'=>'Не заполнено поле'],
-            [['id', 'size', 'power'], 'integer'],
+            [['id',  'power'], 'integer'],
             [['price'], 'number'],
-            [['title'], 'string', 'max' => 50],
+            [['title','size'], 'string', 'max' => 50],
             [['image'],'image'],
         ];
     }

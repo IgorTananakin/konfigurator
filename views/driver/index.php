@@ -18,14 +18,15 @@ use app\components\MenuWidget; ?>
     <div class="clearfix"></div>
 <?php endif?>
 <?php $drivers->id?>
-        <h3>CD/DVD привод <?php echo $drivers->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
-
-
-
-        <!--             -->
+        <h4>CD/DVD привод <?php echo $drivers->title?></h4>
+        <img src="/uploads/DriverController/<?=$drivers->title?>.jpg" class="button12"alt="картинка CD/DVD драйвера"/>
+                    
+        <p class="text_property">Размер <?php echo $drivers->size;?> мм</p>
+        <p class="text_property">Мощность <?php echo $drivers->power;?> Вт</p>
+                   
+        <p class="price">Цена <?php echo $drivers->price;?> руб</p>
+                    
+        <a href="<?=\yii\helpers\Url::to(['driver/view','id'=>$drivers->id]) ?>"class="btn btn-more">Подробнее</a>      
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Driver','id'=>$drivers->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

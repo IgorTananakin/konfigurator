@@ -5,6 +5,11 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use Yii;
 
+
+
+use yii\imagine\Image; 
+use Imagine\Image\Box;
+
 /**
  * This is the model class for table "corpus".
  *
@@ -44,9 +49,9 @@ class Corpus extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'price', 'size', 'size_hard_disc', 'power'], 'required','message'=>'Не заполнено поле'],
-            [['price', 'size_hard_disc'], 'number'],
-            [['size', 'power'], 'integer'],
-            [['title'], 'string', 'max' => 50],
+            [['price'], 'number'],
+            [[ 'power'], 'integer'],
+            [['size','title', 'size_hard_disc'], 'string', 'max' => 50],
             [['image'],'image'],
         ];
     }
@@ -62,8 +67,32 @@ class Corpus extends \yii\db\ActiveRecord
             'title' => 'Название',
             'price' => 'Цена',
             'size' => 'Размер',
-            'size_hard_disc' => 'Физический размер жёсткого диска',
+            'size_hard_disc' => 'Физический размер под жёсткий диск',
             'power' => 'Мощность',
+            'image' => 'Изображение',
         ];
     }
+
+//для изменения размера изображения
+    public function upload() {
+        //для работы этой функции подключил расширение yii2
+        //подключил библиотеки 
+        //use yii\imagine\Image; 
+        //use Imagine\Image\Box;
+        
+        //$this->image->saveAs('uploads/CorpusController/' . $this->image->baseName . '.' . $this->image->extension);
+    
+            Image::thumbnail('uploads/CorpusController/' .
+             $this->image->baseName. '.' . $this->image->extension, 200, 200)
+                    ->resize(new Box(200,200))
+                    ->save('uploads/CorpusController/thumbnail-200x200/' . $this->image->baseName . '.' . $this->image->extension, 
+                            ['quality' => 70]);
+
+
+
+
+
+        unlink('uploads/CorpusController/' . $this->image->baseName . '.'  . $this->image->extension);
+        }
+
 }

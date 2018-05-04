@@ -20,14 +20,15 @@ use app\components\MenuWidget; ?>
     <div class="clearfix"></div>
 <?php endif?>
 <?php $harddisks->id?>
-        <h3>Корпус <?php echo $harddisks->title?></h3>
-      	<img src="../image/korpis7.jpg" class="button12"alt="картинка сборки"/>
-        <h5>Характеристики</h5>
-        <!-- добавить описание -->
+        <h4>Жёсткий диск <?php echo $harddisks->title?></h4>
+        
+        <img src="/uploads/HarddiskController/<?=$harddisks->title?>.jpg" class="button12"alt="картинка жёсткого диска"/>
 
-
-
-        <!--             -->
+        <p class="text_property">Мощность <?php echo $harddisks->power;?> Вт</p>
+                   
+        <p class="price">Цена <?php echo $harddisks->price;?> руб</p>
+                    
+        <a href="<?=\yii\helpers\Url::to(['harddisk/view','id'=>$harddisks->id]) ?>"class="btn btn-more">Подробнее</a>       
         <a href="<?=\yii\helpers\Url::to(['assembly/add','nameClass'=>'Harddisk','id'=>$harddisks->id])?>"  class="btn btn-primary add-to-basket">В сборку</a>
     </div>
     

@@ -10,6 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
+
+
+
 /**
  * CorpusController implements the CRUD actions for Corpus model.
  */
@@ -68,6 +71,8 @@ class CorpusController extends AdminController
         ]);
     }
 
+
+
     /**
      * Creates a new Corpus model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -76,20 +81,6 @@ class CorpusController extends AdminController
     public function actionCreate()
     {
 
-
-        // if ($model->load(Yii::$app->request->post())) {
-        //     $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-        //     if($this->validate()){
-        //         if ($model->imageFile && $model->upload()) {
-        //             $model->image = $this->imageFile->baseName . '.' . $this->imageFile->extension;
-        //         }
-        //         if($this->save()){
-        //             return $this->redirect(['view', 'id' => $model->id]);
-        //         }
-        //     }
-
-
-
         $model = new Corpus();
 
         if ($model->load(Yii::$app->request->post()))  {
@@ -97,14 +88,19 @@ class CorpusController extends AdminController
             //для вставки картинки в папку и в базу готово
             $model->image=UploadedFile::getInstance($model,'image');
             if($model->validate()){
+                
             if ($model->image) {
-            $model->image->saveAs('uploads/CorpusController/'.$model->image->baseName.'.'.$model->image->extension);
-            $model->image = $model->image->baseName . '.' . $model->image->extension;
-                    }
-            //
+                $model->upload();//для сжатия картинки
+                $model->image = $model->image->baseName . '.' . $model->image->extension;
+            }
+            
+            
             if($model->save()){
+              
             return $this->redirect(['view', 'id' => $model->id]);
             }
+           
+
         }
         } else {
             return $this->render('create', [
@@ -123,8 +119,11 @@ class CorpusController extends AdminController
     {
         
         $model = $this->findModel($id);
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+           
+            
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

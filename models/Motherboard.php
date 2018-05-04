@@ -60,12 +60,13 @@ class Motherboard extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Название',
             'price' => 'Цена',
-            'sound' => 'Sound',
-            'pci_count' => 'Количество Pci',
-            'ide_count' => 'Количество Ide',
+            'sound' => 'Звуковой разъём',
+            'pci_count' => 'Количество PCI',
+            'ide_count' => 'Количество IDE',
             'graphical_scheme' => 'Графическая схема',
             'socket_id' => 'Socket',
             'power' => 'Мощность',
+            'image' => 'Изображение',
         ];
     }
     public function getSocket()
