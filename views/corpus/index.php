@@ -30,8 +30,6 @@ use app\components\MenuWidget;
                 <img src="/uploads/CorpusController/thumbnail-200x200/<?=$corpusa->image?>" class="button12"alt="ошибка"/>
                 <?php endif; ?>
 
-
-
               
                     <p class="text_property">Размер <?php echo $corpusa->size;?> мм</p>
                     <p class="text_property">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?> мм</p>

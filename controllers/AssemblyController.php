@@ -4,6 +4,7 @@ namespace app\controllers;
 use app\models\Assembly;
 use app\models\Processor;
 use app\models\Corpus;
+use app\models\Coolingsystem;
 
 use Yii;
 
@@ -15,6 +16,45 @@ class AssemblyController extends \yii\web\Controller
             'assembly' => Assembly::findOne($id),//передаю id конкретной сборки
         ]);
     }
+
+
+    /////////////////////////////////////////////////для формирования сборки клиента
+
+    public function actionCreateassembly()
+    {
+        $assembly = new Assembly(); 
+
+        $assembly->title = 'Сборка пользователя';
+        $assembly->sound_card_id = $_SESSION['assembly']['Soundcard']['id'];
+        $assembly->video_card_id = $_SESSION['assembly']['Videocard']['id'];
+        $assembly->ram_id = $_SESSION['assembly']['Ram']['id'];
+        $assembly->processor_id = $_SESSION['assembly']['Processor']['id'];
+        $assembly->hard_disc_id = $_SESSION['assembly']['Harddisk']['id'];
+        $assembly->driver_id = $_SESSION['assembly']['Driver']['id'];
+        $assembly->motherboard_id = $_SESSION['assembly']['Ram']['id'];
+        $assembly->power_supply_id = $_SESSION['assembly']['Powersupply']['id'];
+        $assembly->cooling_system_id = $_SESSION['assembly']['Coolingsystem']['id'];
+        $assembly->corpus_id = $_SESSION['assembly']['Corpus']['id'];
+        $assembly->network_card_id = $_SESSION['assembly']['Networkcard']['id'];
+        
+        //var_dump($assembly->id);die;
+        $assembly->save();
+        
+        
+        $id=$assembly->id;
+        //var_dump($assembly->id);die;
+        $_SESSION['assembly']=[];
+        $_SESSION['basket'][]=$id;
+
+
+        // return  $this->render('createassembly',[
+        // //'assembly' => Assembly::findOne($id),
+        // ]);
+
+
+        return $this->redirect(['basket/index']);
+    }
+
 
 
 

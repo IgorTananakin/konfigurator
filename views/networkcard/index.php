@@ -19,7 +19,17 @@ use app\components\MenuWidget; ?>
 <?php endif?>
 <?php $networkcards->id?>
         <h4>Сетевая карта <?php echo $networkcards->title?></h4>
-        <img src="/uploads/CorpusController/<?=$networkcards->title?>.jpg" class="button12"alt="картинка сетевой карты"/>
+
+
+
+        <?php if ($networkcards->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/NetworkcardController/thumbnail-200x200/<?=$networkcards->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+
+
+
                     
         <p class="text_property">Мощность <?php echo $networkcards->power;?> Вт</p>
                    

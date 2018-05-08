@@ -25,8 +25,7 @@ use yii\helpers\Url;
                 <td><?php echo $assembly->id ?></td>
                 <td><?php echo $assembly->title ?></td>
                 <td><?php echo $assembly->id ?></td>
-                <?php $sum = new Assembly();/**/?>
-                <td><?php echo $sum->getSum($assembly);?></td>
+                <td><?php echo $assembly->getSum();?></td>
                 <td><a href=<?=\yii\helpers\Url::to(['basket/del','id'=>$assembly->id])?>><span class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
             </tr>
             

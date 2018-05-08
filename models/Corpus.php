@@ -74,25 +74,20 @@ class Corpus extends \yii\db\ActiveRecord
     }
 
 //для изменения размера изображения
-    public function upload() {
-        //для работы этой функции подключил расширение yii2
-        //подключил библиотеки 
-        //use yii\imagine\Image; 
-        //use Imagine\Image\Box;
-        
-        //$this->image->saveAs('uploads/CorpusController/' . $this->image->baseName . '.' . $this->image->extension);
+public function upload() {
+    //для работы этой функции подключил расширение yii2
+    //подключил библиотеки 
+    //use yii\imagine\Image; 
+    //use Imagine\Image\Box;
     
-            Image::thumbnail('uploads/CorpusController/' .
-             $this->image->baseName. '.' . $this->image->extension, 200, 200)
-                    ->resize(new Box(200,200))
-                    ->save('uploads/CorpusController/thumbnail-200x200/' . $this->image->baseName . '.' . $this->image->extension, 
-                            ['quality' => 70]);
+    //$this->image->saveAs('uploads/CorpusController/' . $this->image->baseName . '.' . $this->image->extension);
 
-
-
-
-
-        unlink('uploads/CorpusController/' . $this->image->baseName . '.'  . $this->image->extension);
-        }
+        Image::thumbnail('uploads/CorpusController/' .
+         $this->image->baseName. '.' . $this->image->extension, 200, 200)
+                ->resize(new Box(200,200))
+                ->save('uploads/CorpusController/thumbnail-200x200/' . $this->image->baseName . '.' . $this->image->extension, 
+                        ['quality' => 70]);
+    //unlink('uploads/CorpusController/' . $this->image->baseName . '.'  . $this->image->extension);
+    }
 
 }

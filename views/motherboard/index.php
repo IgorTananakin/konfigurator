@@ -24,8 +24,17 @@ use app\components\MenuWidget; ?>
 <?php $motherboards->id?>
         <h4>Материнская плата <?php echo $motherboards->title?></h4>
 
-        <img src="/uploads/MotherboardController/<?=$motherboards->title?>.jpg" class="button12"alt="картинка материнской платы"/>
-                    
+
+
+
+        <?php if ($motherboards->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/MotherboardController/thumbnail-200x200/<?=$motherboards->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+
+
+
         <p class="text_property">Графическая схема <?php echo $motherboards->graphical_scheme;?> </p>
         <p class="text_property">Количество PCI <?php echo $motherboards->pci_count;?> </p>
         <p class="text_property">Мощность <?php echo $motherboards->power;?> Вт</p>

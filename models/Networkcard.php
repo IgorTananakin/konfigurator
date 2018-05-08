@@ -5,6 +5,10 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use Yii;
 
+
+use yii\imagine\Image; 
+use Imagine\Image\Box;
+
 /**
  * This is the model class for table "network_card".
  *
@@ -54,5 +58,21 @@ class Networkcard extends \yii\db\ActiveRecord
             'title' => 'Название',
             'power' => 'Мощность',
         ];
+    }
+    //для изменения размера изображения
+public function upload() {
+    //для работы этой функции подключил расширение yii2
+    //подключил библиотеки 
+    //use yii\imagine\Image; 
+    //use Imagine\Image\Box;
+    
+    //$this->image->saveAs('uploads/CorpusController/' . $this->image->baseName . '.' . $this->image->extension);
+
+        Image::thumbnail('uploads/NetworkcardController/' .
+         $this->image->baseName. '.' . $this->image->extension, 200, 200)
+                ->resize(new Box(200,200))
+                ->save('uploads/NetworkcardController/thumbnail-200x200/' . $this->image->baseName . '.' . $this->image->extension, 
+                        ['quality' => 70]);
+    //unlink('uploads/CorpusController/' . $this->image->baseName . '.'  . $this->image->extension);
     }
 }

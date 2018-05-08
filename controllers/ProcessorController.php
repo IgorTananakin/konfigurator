@@ -14,7 +14,10 @@ class ProcessorController extends \yii\web\Controller
     //    {
 
     //    }
-    if (isset($_SESSION['assembly'])){
+
+    
+    //доразобрать
+    if (isset($_SESSION['assembly']) && isset($_SESSION['motherboard'])){
     $processor = Processor::find()->where(['socket_id' => $_SESSION['assembly']['Motherboard']['socket_id']])->all();
     } else $processor = Processor::find()->all();
     //$processor = Processor::find(['socket_id' => 3]) ->all();;

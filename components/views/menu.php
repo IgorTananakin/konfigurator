@@ -1,10 +1,13 @@
 <?php
+
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Processor;
-/* @var $this yii\web\View */
-/* @var $model app\models\Assembly */
-/* @var $form ActiveForm */
+use app\components\Myhelper;
+
+
+
 ?>
 
 
@@ -73,8 +76,11 @@ use app\models\Processor;
         </a>
     </li>
    
-        <a href="<?=\yii\helpers\Url::to(['assembly/create'])?>"  class="btn btn-primary">Заказать сборку</a>
-  
+   <?php //allElements(); ?>
+   <?php if (Myhelper::allElements() == true): ?>
+        <a href="<?=\yii\helpers\Url::to(['assembly/createassembly'])?>"  class="btn btn-primary">Заказать сборку</a>
+
+    <?php endif; ?>
 
   </ul>
 </nav>

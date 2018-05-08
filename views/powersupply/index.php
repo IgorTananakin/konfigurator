@@ -19,7 +19,16 @@ use app\components\MenuWidget; ?>
 <?php endif?>
 <?php $powersupplies->id?>
         <h4>Блок питания <?php echo $powersupplies->title?></h4>
-        <img src="/uploads/PowersupplyController/<?=$powersupplies->title?>.jpg" class="button12"alt="картинка блока питания"/>
+
+
+
+        <?php if ($powersupplies->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/CorpusController/thumbnail-200x200/<?=$powersupplies->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+
+
                     
         <p class="text_property">Мощность <?php echo $powersupplies->power;?> Вт</p>
                    

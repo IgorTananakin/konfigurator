@@ -20,8 +20,15 @@ use app\components\MenuWidget; ?>
 <?php $rams->id?>
         <h4>Оперативная память <?php echo $rams->title?></h4>
 
-        <img src="/uploads/CorpusController/<?=$rams->title?>.jpg" class="button12"alt="картинка оперативная память"/>
-                    
+
+        <?php if ($rams->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/RamController/thumbnail-200x200/<?=$rams->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+
+
+
         <p class="text_property">Производитель <?php echo $rams->manufacturer;?> мм</p>
         <p class="text_property">Частота <?php echo $rams->frequency;?> мм</p>
         <p class="text_property">Мощность <?php echo $rams->power;?> Вт</p>

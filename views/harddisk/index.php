@@ -22,7 +22,15 @@ use app\components\MenuWidget; ?>
 <?php $harddisks->id?>
         <h4>Жёсткий диск <?php echo $harddisks->title?></h4>
         
-        <img src="/uploads/HarddiskController/<?=$harddisks->title?>.jpg" class="button12"alt="картинка жёсткого диска"/>
+
+
+        <?php if ($harddisks->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/HarddiskController/thumbnail-200x200/<?=$harddisks->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+
+
 
         <p class="text_property">Мощность <?php echo $harddisks->power;?> Вт</p>
                    

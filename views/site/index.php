@@ -20,17 +20,22 @@ use app\models\Assembly;
 		<div class="assembly">
 			<div class="col-md-3">
 				<div class="thumbnail">
-					<h4 class="Name_sborka">Сборка <?=$assembly->id?></h4>
+					<h4 class="Name_sborka"><?=$assembly->title?></h4>
 					
-					<img src="/uploads/CorpusController/<?=$assembly->corpus->title?>.jpg" class="button12"alt="картинка сборки"/>
-					
+					<?php if ($assembly->corpus->image == ''): ?>
+                    <img src="/uploads/фото отсутвует.jpg" />
+                	<?php else: ?>
+                	<img src="/uploads/CorpusController/thumbnail-200x200/<?=$assembly->corpus->image?>" class="button12"alt="ошибка"/>
+                	<?php endif; ?>
+
+
 					<p class="text_property">Процессор:<small><?=$assembly->processor->title;?></small></p>
 					<p class="text_property">Оперативная память: <small><?=$assembly->ram->title?></small></p>	
 					<p class="text_property">Материнская плата: <small><?=$assembly->motherboard->title?></small></p>
 					<p class="text_property">Видео карта: <small><?=$assembly->videocard->title?></small></p>
 						
-					<?php $sum = new Assembly();?>
-					<p class="price">Цена <?php echo $sum->getSum($assembly);?> руб</p>
+					<?php// $sum = new Assembly();?>
+					<p class="price">Цена <?php echo $assembly->getSum();?> руб</p>
 
 					<a href="<?=\yii\helpers\Url::to(['assembly/view','id'=>$assembly->id])?>"class="btn btn-more">Подробнее</a>
 						

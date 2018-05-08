@@ -57,28 +57,28 @@ class NetworkcardController extends AdminController
         ]);
     }
 
-    /**
-     * Creates a new Networkcard model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
+
     public function actionCreate()
     {
         $model = new Networkcard();
-
         if ($model->load(Yii::$app->request->post()))  {
-
             //для вставки картинки в папку и в базу готово
             $model->image=UploadedFile::getInstance($model,'image');
             if($model->validate()){
+                
             if ($model->image) {
-            $model->image->saveAs('uploads/NetworkcardController/'.$model->image->baseName.'.'.$model->image->extension);
-            $model->image = $model->image->baseName . '.' . $model->image->extension;
-                    }
-            //
+                $model->image->saveAs('uploads/NetworkcardController/'.$model->image->baseName.'.'.$model->image->extension);
+                // $model->image = $model->image->baseName . '.' . $model->image->extension;
+                $model->upload();//для сжатия картинки
+                $model->image = $model->image->baseName . '.' . $model->image->extension;
+            }
+            
+            
             if($model->save()){
+              
             return $this->redirect(['view', 'id' => $model->id]);
             }
+           
         }
         } else {
             return $this->render('create', [

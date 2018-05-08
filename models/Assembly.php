@@ -20,7 +20,7 @@ use Yii;
  * @property integer $corpus_id
  * @property integer $network_card_id
  */
-class Assembly extends \yii\db\ActiveRecord
+class Assembly extends \yii\db\ActiveRecord 
 {
         //добавление функции для вставки картинки во views
     
@@ -43,8 +43,11 @@ class Assembly extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sound_card_id', 'video_card_id', 'ram_id', 'processor_id', 'hard_disc_id', 'driver_id', 'motherboard_id', 'power_supply_id', 'cooling_system_id', 'corpus_id', 'network_card_id'], 'required'],
-            [['sound_card_id', 'video_card_id', 'ram_id', 'processor_id', 'hard_disc_id', 'driver_id', 'motherboard_id', 'power_supply_id', 'cooling_system_id', 'corpus_id', 'network_card_id'], 'integer'],
+           // [['sound_card_id', 'video_card_id', 'ram_id', 'processor_id', 'hard_disc_id', 'driver_id', 'motherboard_id', 'power_supply_id', 'cooling_system_id', 'corpus_id', 'network_card_id'], 'required'],
+            //[['id'], 'required'],
+            
+            [['id','sound_card_id', 'video_card_id', 'ram_id', 'processor_id', 'hard_disc_id', 'driver_id', 'motherboard_id', 'power_supply_id', 'cooling_system_id', 'corpus_id', 'network_card_id'], 'integer'],
+
         ];
     }
 
@@ -72,19 +75,19 @@ class Assembly extends \yii\db\ActiveRecord
 
         ];
     }
-    public function getSum($assembly)
+    public function getSum()
     {
-        $count = $assembly->ram->price;
-        $count = $assembly->processor->price+$count;
-        $count = $assembly->motherboard->price+$count;
-         $count = $assembly->videocard->price+$count;
-         $count = $assembly->networkcard->price+$count;
-         $count = $assembly->harddisc->price+$count;
-         $count = $assembly->processor->price+$count;
-         $count = $assembly->corpus->price+$count;
-         $count = $assembly->driver->price+$count;
-         $count = $assembly->coolingsystem->price+$count;
-         $count = $assembly->powersupply->price+$count;
+        $count = $this->ram->price;
+        $count = $this->processor->price+$count;
+        $count = $this->motherboard->price+$count;
+         $count = $this->videocard->price+$count;
+         $count = $this->networkcard->price+$count;
+         $count = $this->harddisc->price+$count;
+         $count = $this->processor->price+$count;
+         $count = $this->corpus->price+$count;
+         $count = $this->driver->price+$count;
+         $count = $this->coolingsystem->price+$count;
+         $count = $this->powersupply->price+$count;
         
         
         return $count;
@@ -142,5 +145,8 @@ class Assembly extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Powersupply::className(), ['id' => 'power_supply_id']);
     }
+
+
+
   
 }

@@ -19,8 +19,18 @@ use app\components\MenuWidget; ?>
 <?php endif?>
 <?php $drivers->id?>
         <h4>CD/DVD привод <?php echo $drivers->title?></h4>
-        <img src="/uploads/DriverController/<?=$drivers->title?>.jpg" class="button12"alt="картинка CD/DVD драйвера"/>
-                    
+
+
+
+        <?php if ($drivers->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/DriverController/thumbnail-200x200/<?=$drivers->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+        
+
+
+
         <p class="text_property">Размер <?php echo $drivers->size;?> мм</p>
         <p class="text_property">Мощность <?php echo $drivers->power;?> Вт</p>
                    

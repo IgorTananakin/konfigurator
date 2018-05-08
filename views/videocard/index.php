@@ -21,7 +21,15 @@ use app\components\MenuWidget;
 <?php endif?>
 <?php $videocards->id?>
         <h4>Видеокарта <?php echo $videocards->title?></h4>
-        <img src="/uploads/VideocardController/<?=$videocards->title?>.jpg" class="button12"alt="картинка видеокарты"/>
+
+
+        <?php if ($videocards->image == ''): ?>
+        <img src="/uploads/фото отсутвует.jpg" />
+        <?php else: ?>
+        <img src="/uploads/VideocardController/thumbnail-200x200/<?=$videocards->image?>" class="button12"alt="ошибка"/>
+        <?php endif; ?>
+
+
 
         <p class="text_property">Графическая схема <?php echo $videocards->graphical_scheme;?> </p>
         <p class="text_property">Видеоконтроллер <?php echo $videocards->video_controler;?> </p>

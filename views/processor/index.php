@@ -18,8 +18,15 @@ use app\components\MenuWidget; ?>
 <?php//endif?>
 <?php $processors->id?>
         <h4>Процессор <?php echo $processors->title?></h4>
-        <img src="/uploads/ProcessorController/<?=$processors->title?>.jpg" class="button12"alt="картинка процессора"/>
-      
+
+
+        <?php if ($processors->image == ''): ?>
+                    <img src="/uploads/фото отсутвует.jpg" />
+                <?php else: ?>
+                <img src="/uploads/ProcessorController/thumbnail-200x200/<?=$processors->image?>" class="button12"alt="ошибка"/>
+                <?php endif; ?>
+
+
 
         <p class="text_property">Разрядность <?php echo $processors->digit_capacity?></p>
         <p class="text_property">Частота <?php echo $processors->frequency?></p>
