@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Assembly;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model app\models\Assembly */
 /* @var $form ActiveForm */
@@ -26,5 +27,6 @@ use app\models\Assembly;
 
 <div>
 <button type="submit" class="btn btn-primary">Сохранить</button>
+<a href="<?=Url::to(['order/index'])?>"class="btn btn-primary">Просмотреть оформленные заказы</a>
 </div>
 <?php $form=ActiveForm::end(); ?>

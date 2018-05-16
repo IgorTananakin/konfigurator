@@ -9,17 +9,13 @@ class Basket extends \yii\db\ActiveRecord
 {
 
 
-
-
-
-    /**
+/**
      * @inheritdoc
      */
     public static function tableName()
     {
         return 'basket';
     }
-
     /**
      * @inheritdoc
      */
@@ -30,7 +26,6 @@ class Basket extends \yii\db\ActiveRecord
             [['assembly_id', 'processor_id', 'ram_id', 'hard_disk_id', 'driver_id', 'video_card_id', 'cooling_system_id', 'sound_id', 'power_supply_id', 'network_card_id', 'corpus_id'], 'integer'],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -51,6 +46,9 @@ class Basket extends \yii\db\ActiveRecord
             'corpus_id' => 'Corpus ID',
         ];
     }
+
+
+    
     // public function addToBasket($assembly,$qty=1)
     // {
     //     echo "jrvndfkbdfk";die;
@@ -69,18 +67,22 @@ class Basket extends \yii\db\ActiveRecord
     // // //добавляю в массив basket.qty и проверяю если есть такой товар то плюсую количество если нет то добавляю один к количеству
     // // $_SESSION['basket.sum'] = isset($_SESSION['basket.sum']) ? $_SESSION['basket.sum'] + $qty * $assembly->price : $qty * $assembly->price;
     //  }
-    public function addToBasket($assembly,$qty=1)
+    public function addToBasket($assembly)
     {
         // echo "jrvndfkbdfk";die;
         // var_dump( "Worked!");die;
          
               $_SESSION['basket'][$assembly->id]=[
-                  'qty' => $qty,
-                  'title' =>$assembly->ram_id,
+                  
+                //   'qty' => $qty,
+                //   'title' =>$assembly->ram_id,
                   
               ];
+
+
+            
           
-    echo ($_SESSION['basket'][$assembly->id]);die;
+    //echo ($_SESSION['basket'][$assembly->id]);die;
     
      }
      public function clearToBasket($assembly,$qty=1)
@@ -90,7 +92,7 @@ class Basket extends \yii\db\ActiveRecord
           
                $_SESSION['basket'][$assembly->id]=[];
            
-     echo ($_SESSION['basket'][$assembly-id]);die;
+    // echo ($_SESSION['basket'][$assembly-id]);die;
      
       }
 }

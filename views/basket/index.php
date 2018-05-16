@@ -4,6 +4,7 @@ use app\models\Assembly;
 use yii\helpers\Url;
 ?>
 <?php if(!empty($_SESSION['basket'])){ //проверка на существование basket empty - определяет, установлена ли переменная?>
+
 <div class="table-responsive">
     <table class="table table-hover table-striped">
         <thead>
@@ -16,15 +17,27 @@ use yii\helpers\Url;
             </tr>
         </thead>
         
-<?php $result = ($_SESSION['basket']);//убираю повторения временно убрал?>
-<?php foreach($result as $id): ?>
+
+<?php foreach($_SESSION['basket'] as $id => $item): ?>
+<?php //var_dump($id );die;?>
+
     <?php $assembly = Assembly::findOne($id) ?> 
 
         <tbody>
             <tr>
-                <td><?php echo $assembly->id ?></td>
+                <td><?php echo "Сборка" ?></td>
                 <td><?php echo $assembly->title ?></td>
-                <td><?php echo $assembly->id ?></td>
+                <?php
+                // $array_qrt = array(5);
+                
+
+                // array_push($array_qrt,$assembly->id);
+
+
+                // var_dump($array_qrt);
+                //var_dump($array_qrt);die;
+                ?>
+                <td><?php echo $item['count'] ?></td>
                 <td><?php echo $assembly->getSum();?></td>
                 <td><a href=<?=\yii\helpers\Url::to(['basket/del','id'=>$assembly->id])?>><span class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
             </tr>
@@ -38,7 +51,7 @@ use yii\helpers\Url;
         
     </table>
     
-    <p>Итого на сумму: </p>
+    <p>Итого на сумму:<?php // echo $assembly->getSumall(); ?></p>
 
      <a href="<?php  echo Url::to(['basket/clear'])?>" class="btn btn-primary">Очистить корзину</a> 
    
@@ -62,7 +75,7 @@ use yii\helpers\Url;
     
     <?php } ?>
 
-
+<?php //var_dump($array_qrt);die;?>
 
     
 </div>

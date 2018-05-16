@@ -9,6 +9,7 @@ use yii\db\Expression;
 /* @var $this yii\web\View */
 ?>
 <h1>Список заказов</h1>
+<?php //var_dump(Yii::$app->user->id);die;?>
 
 <div class="table-responsive">
     <table class="table table-hover table-striped">
@@ -23,7 +24,7 @@ use yii\db\Expression;
         </thead>
 
 <?php foreach($orders as $order ):?>
-
+<?php if(Yii::$app->user->id == $order->user_id):?>
         <tbody>
             <tr>
                 <td><?php echo $order->id ?> </td>
@@ -32,8 +33,10 @@ use yii\db\Expression;
 
                 <?php $order_items = OrderItem::find()->where(['order_id' => $order->id ])->all(); ?>
                 <!-- делаю выборку чтобы вывести поле у которого id в таблице order соответствует order_id в таблице order_item -->
-                <?php $sum = new Assembly(); ?>
+                <?php// $sum = new Assembly(); ?>
                 <?php $sum_all=0;?>
+
+                
             <?php foreach($order_items as $order_item ):?>
               
              
@@ -41,10 +44,12 @@ use yii\db\Expression;
               <!-- вывожу уже конкретную сборку связь прописал в модели OrderItem -->
                
               
-              <?php  $sum_all = $sum->getSum($order_item->assembly)+$sum_all;?>
+                  
+              
+              <?php  $sum_all = $order_item->assembly->getSum()+$sum_all;?>
                
             <?php endforeach?>
-            
+           
             </td>
                 <td> <?php  echo $sum_all ?> <?php  //echo $order->getSumAll(); ?> руб </td>
                 <td>
@@ -62,11 +67,22 @@ use yii\db\Expression;
        
 
     
+    <?php endif ?>
 
 <?php endforeach ?>
+
 </table>
 </div>
-<h3>Ваш заказ успешно оформлен ждите доставки</h3>
+
+    <?php if(!isset(Yii::$app->user->id)):?>
+        <h3> Ваш заказ не оформлен </h3>
+    <?php endif ?>
+
+    <?php if(isset(Yii::$app->user->id)):?>
+        <h3> Ваш заказ успешно оформлен ждите доставки </h3>
+    <?php endif ?>
+
+
     <a href="<?=Url::to(['site/index'])?>"class="btn btn-primary">Вернуться на главную страницу</a>
 
 

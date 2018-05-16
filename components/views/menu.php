@@ -14,9 +14,9 @@ use app\components\Myhelper;
 <div class="col-md-3 ">
 <nav class="configurator_menu">
 <h3 class="menu_item">Меню для подбора комплектующих</h3>
-<p class="text-danger">Цена от</p>
+<!-- <p class="text-danger">Цена от</p>
 
-<p class="text-danger">Цена до</p>
+<p class="text-danger">Цена до</p> -->
   <ul class="nav">
   <li>
         <a href="<?=\yii\helpers\Url::to(['corpus/index']) ?>" class="menutext">

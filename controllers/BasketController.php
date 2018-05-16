@@ -46,11 +46,41 @@ public function actionAdd()
    // $session->open();
    
 
+   if (!isset($_SESSION['basket'][$id]['count']))
+   {
+    
+    // $_SESSION['basket']['assembly']=$id;
+    $_SESSION['basket'][$id]['count']=0 ;
+    
+   // var_dump($count);
+    var_dump($_SESSION['basket'][$id]['count']);
+    var_dump($_SESSION['basket']);//die;
+   } 
 
-    $_SESSION['basket'][]=$id;
+
+    
+    
    // $session = Yii::$app->session;
     //$result = array_unique($_SESSION['basket']);//убираю повторения 
+
+
+
+//var_dump($_SESSION['basket'][$id]['count']);die;
+
+//['assembly']
+
+    /// if (isset($_SESSION['basket']) and (($_SESSION['basket'][$id]['count'] == 0) || ($_SESSION['basket'][$id]['count'] > 0)))
+   //  {
+        
+         $_SESSION['basket'][$id]['count'] = $_SESSION['basket'][$id]['count']+1;
+    //     //var_dump($_SESSION['basket']['assembly'][$assembly->id]['count']);die;
+   //  }
+    // //var_dump($_SESSION['assembly']['assembly'][$assembly->id]['count']);
+
+
+   // var_dump($_SESSION['basket']);die;
     return $this->redirect(['basket/index']
+   
     );          
      
 }
@@ -58,7 +88,15 @@ public function actionAdd()
 public function actionDel()
 {
     $id = Yii::$app->request->get('id');
-    unset($_SESSION['basket'][$id]);
+    if (!$_SESSION['basket'][$id]['count'] == 0)
+    {
+        $_SESSION['basket'][$id]['count'] = $_SESSION['basket'][$id]['count']-1;
+    }
+    if ($_SESSION['basket'][$id]['count'] == 0)
+    {
+        unset($_SESSION['basket'][$id]);
+    }
+   
     return $this->redirect(['basket/index']);   
 }
 public function actionClear()
@@ -67,6 +105,7 @@ public function actionClear()
     unset($_SESSION['basket']);//чищю сессию конкретно для корзины
      return $this->redirect(['basket/index']);   
 }
+
 
 // public function actionAdd()
 // {

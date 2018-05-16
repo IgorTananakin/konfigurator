@@ -92,14 +92,28 @@ class Assembly extends \yii\db\ActiveRecord
         
         return $count;
     }
+
+
+    // public function getSumall()
+    // {
+    //     $id = Yii::$app->request->get('id');
+    //     if (!$_SESSION['basket'][$id]['count'] > 0)
+    //     {
+    //         $sum = $_SESSION['basket'][$id]['count'] * $this->$assembly->getSum();
+    //         var_dump($sum);die;
+    //     }
+    //     return $this->redirect(['basket/index']);
+    // }
+
+
     
-    public function getDel($assembly)
-    {
-        $id = Yii::$app->request->get('id');
-        $_SESSION['basket'][]=$id;
-        $session=Yii::$app->session;
-        unset($_SESSION['basket']);
-    }
+    // public function getDel($assembly)
+    // {
+    //     $id = Yii::$app->request->get('id');
+    //     $_SESSION['basket'][]=$id;
+    //     $session=Yii::$app->session;
+    //     unset($_SESSION['basket']);
+    // }
     public function getRam()
     {
         return $this->hasOne(Ram::className(), ['id' => 'ram_id']);

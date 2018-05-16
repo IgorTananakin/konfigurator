@@ -17,8 +17,7 @@ use app\models\Assembly;
         <p class="text-primary">Кулер: <small><?//=$assembly->colingsystem->title?></small></p>
         <p class="text-primary">CD/DVD привод: <small><?=$assembly->driver->title?></small></p>
         <p class="text-primary">Корпус: <small><?=$assembly->corpus->title?></small></p>
-        <?php $sum = new Assembly();?>
-		<p class="text-danger">Цена <?php echo $sum->getSum($assembly);?></p>
+		<p class="text-danger">Цена <?php echo $assembly->getSum();?></p>
 
 		<a href="<?=\yii\helpers\Url::to(['site/index'])?>"class="btn btn-more">Назад</a>
 		<a href="<?=\yii\helpers\Url::to(['basket/add','id'=>$assembly->id])?>" data-id="<?=$assembly->id?>" class="btn btn-primary add-to-basket">В корзину</a>
