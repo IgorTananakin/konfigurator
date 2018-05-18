@@ -94,16 +94,17 @@ class Assembly extends \yii\db\ActiveRecord
     }
 
 
-    // public function getSumall()
-    // {
-    //     $id = Yii::$app->request->get('id');
-    //     if (!$_SESSION['basket'][$id]['count'] > 0)
-    //     {
-    //         $sum = $_SESSION['basket'][$id]['count'] * $this->$assembly->getSum();
-    //         var_dump($sum);die;
-    //     }
-    //     return $this->redirect(['basket/index']);
-    // }
+    public function getSumall()
+    {
+        var_dump($_SESSION['basket']);die;
+        
+         if (!$_SESSION['basket'] > 0)
+         {
+            $sum = $_SESSION['basket'] * $this->$assembly->getSum();
+        //     var_dump($sum);die;
+         }
+        return $this->redirect(['basket/index']);
+    }
 
 
     

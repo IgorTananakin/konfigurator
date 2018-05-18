@@ -16,6 +16,7 @@ class Signup extends Model
   public $password;
   public $phone;
   public $adress;
+  public $movie_b;
   public function rules()
   {
       return [
@@ -23,6 +24,8 @@ class Signup extends Model
         ['email','email','message'=>'Email введён не верно'],
        
         ['email','unique','targetClass'=>'app\models\User'],
+        ['movie_b', 'compare', 'compareValue' => 1, 'message' => 'Дайте разрешение на обработку персональных данных, иначе форма не отправится!'], 
+
         //повторить регулярки они работают все пока не использую их раскоментировать если понадобятся
       //  ['password','match','pattern'=>'{6,}$','message'=>'Пароль должен состоять минимум из 6 символов'],
       //  ['phone', 'match', 'pattern' => '/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/', 'message' => 'Телефон должен содержать минимум 11 цифр, но не более 14. Разрешается использования + ( )' ],
@@ -59,7 +62,9 @@ class Signup extends Model
           'patronymic' => 'Отчество',
           'email' => 'Email',
           'password' => 'Пароль',
-          'phone' => 'Телефон'
+          'phone' => 'Телефон',
+          'adress' => 'Адрес',
+          'movie_b' => 'Дать разрешение на обработку персональных данных'
       ];
   }
 

@@ -71,16 +71,16 @@ class Order extends \yii\db\ActiveRecord
             'adress' => 'Adress',
         ];
     }
-    public function getOrderitems()
+    public function getOrderItems()
     {
-        return $this->hasMany(Orderitem::className(), ['id' => 'order_id']);
+        return $this->hasMany(OrderItem::className(), ['order_id' => 'id']);
     } 
 
 
     public function getStatusStr($order)
     {
-        if ($order->status == 1)  $status="Доставляется";  
-        if ($order->status == 0)  $status="Заказан"; 
+        if ($order->status == 1)  $status="доставляется";  
+        if ($order->status == 0)  $status="заказан"; 
         return $status;
     }
 

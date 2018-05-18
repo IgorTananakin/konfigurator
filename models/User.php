@@ -16,7 +16,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
        [['email', 'username','patronymic','surname','phone'], 'safe'],
       [['email','username','patronymic','surname','phone'],'required','message'=>'Не заполнено поле'],
        ['email','email','message'=>'Email введён не верно'],
-       
+
        
         
         //повторить регулярки они работают все пока не использую их раскоментировать если понадобятся

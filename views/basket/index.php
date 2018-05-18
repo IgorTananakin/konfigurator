@@ -12,7 +12,7 @@ use yii\helpers\Url;
                 <th>Товар</th>
                 <th>Название товара</th>
                 <th>Количество</th>
-                <th>Цена</th>
+                <th>Цена за одну</th>
                 <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
             </tr>
         </thead>
@@ -27,16 +27,6 @@ use yii\helpers\Url;
             <tr>
                 <td><?php echo "Сборка" ?></td>
                 <td><?php echo $assembly->title ?></td>
-                <?php
-                // $array_qrt = array(5);
-                
-
-                // array_push($array_qrt,$assembly->id);
-
-
-                // var_dump($array_qrt);
-                //var_dump($array_qrt);die;
-                ?>
                 <td><?php echo $item['count'] ?></td>
                 <td><?php echo $assembly->getSum();?></td>
                 <td><a href=<?=\yii\helpers\Url::to(['basket/del','id'=>$assembly->id])?>><span class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
@@ -51,7 +41,7 @@ use yii\helpers\Url;
         
     </table>
     
-    <p>Итого на сумму:<?php // echo $assembly->getSumall(); ?></p>
+    <p>Итого на сумму:<?php// echo $assembly->getSumall(); ?></p>
 
      <a href="<?php  echo Url::to(['basket/clear'])?>" class="btn btn-primary">Очистить корзину</a> 
    

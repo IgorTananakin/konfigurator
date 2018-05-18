@@ -16,42 +16,28 @@ use yii\db\Expression;
         <thead>
             <tr>
                 <th>№ заказа</th>
-                <th>Товар</th>
-                <th>Общая стоимость</th>
                 <th>Дата заказа</th>
                 <th>Статус заказа</th>
             </tr>
         </thead>
 
 <?php foreach($orders as $order ):?>
-<?php if(Yii::$app->user->id == $order->user_id):?>
+<?php //if(Yii::$app->user->id == $order->user_id): воспользоватся этим костылём если будут проблемы в sql
+//получаю текущего пользователя и сравниваю его с в базе с полеме user_id
+?>
         <tbody>
             <tr>
-                <td><?php echo $order->id ?> </td>
+            
+                <td><a href="<?=Url::to(['order/view','id'=>$order->id])?>"> <?php echo $order->id ?> </a></td>
                 
-                <td> 
+                
 
                 <?php $order_items = OrderItem::find()->where(['order_id' => $order->id ])->all(); ?>
                 <!-- делаю выборку чтобы вывести поле у которого id в таблице order соответствует order_id в таблице order_item -->
-                <?php// $sum = new Assembly(); ?>
-                <?php $sum_all=0;?>
 
-                
-            <?php foreach($order_items as $order_item ):?>
-              
-             
-                <?php echo $order_item->assembly->title;?>
-              <!-- вывожу уже конкретную сборку связь прописал в модели OrderItem -->
-               
-              
-                  
-              
-              <?php  $sum_all = $order_item->assembly->getSum()+$sum_all;?>
-               
-            <?php endforeach?>
-           
-            </td>
-                <td> <?php  echo $sum_all ?> <?php  //echo $order->getSumAll(); ?> руб </td>
+
+
+            
                 <td>
                     <?php  echo $order->order_date ?>
                   
@@ -64,14 +50,11 @@ use yii\db\Expression;
             </tr>
         </tbody>
    
-       
-
-    
-    <?php endif ?>
 
 <?php endforeach ?>
 
 </table>
+
 </div>
 
     <?php if(!isset(Yii::$app->user->id)):?>

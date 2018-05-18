@@ -20,8 +20,10 @@ use yii\helpers\Html;
 <?=$form->field($model,'phone')->textInput()?>
 <h2>Адресс доставки</h2>
 <?=$form->field($model,'adress')->textInput()?>
+<?=$form->field($model, 'movie_b')->checkbox()?>
 
 <div>
 <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 </div>
+
 <?php $form = ActiveForm::end();?>

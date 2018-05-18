@@ -9,9 +9,11 @@ use Yii;
  *
  * @property int $order_id
  * @property int $assembly_id
+ * @property int $count
  */
 class OrderItem extends \yii\db\ActiveRecord
 {
+    
     /**
      * @inheritdoc
      */
@@ -26,8 +28,8 @@ class OrderItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'assembly_id'], 'required'],
-            [['order_id', 'assembly_id'], 'integer'],
+            [[ 'order_id'], 'required'],
+            [['order_id', 'assembly_id','count'], 'integer'],
         ];
     }
 
@@ -39,6 +41,7 @@ class OrderItem extends \yii\db\ActiveRecord
         return [
             'order_id' => 'Order ID',
             'assembly_id' => 'Assembly ID',
+            'count' => 'count',
         ];
     }
     public function getAssembly()
