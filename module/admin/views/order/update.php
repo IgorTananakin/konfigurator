@@ -3,14 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Assembly */
+/* @var $model app\models\Order */
 
-$this->title = 'Изменить сборку с названием: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Сборки', 'url' => ['index']];
-
+$this->title = 'Изменить заказ: ';
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = 'Изменить';
 ?>
-<div class="assembly-update">
+<div class="order-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

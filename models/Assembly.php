@@ -75,6 +75,7 @@ class Assembly extends \yii\db\ActiveRecord
 
         ];
     }
+
     public function getSum()
     {
         $count = $this->ram->price;

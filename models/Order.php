@@ -65,10 +65,10 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'status' => 'Status',
-            'order_date' => 'Order Date',
-            'user_id' => 'User ID',
-            'adress' => 'Adress',
+            'status' => 'Статус',
+            'order_date' => 'Дата заказа',
+            'user_id' => 'Пользователь',
+            'adress' => 'Адрес',
         ];
     }
     public function getOrderItems()
@@ -79,8 +79,8 @@ class Order extends \yii\db\ActiveRecord
 
     public function getStatusStr($order)
     {
-        if ($order->status == 1)  $status="доставляется";  
-        if ($order->status == 0)  $status="заказан"; 
+        if ($order->status == 2)  $status="готов к покупки";  
+        if ($order->status == 1)  $status="заказан"; 
         return $status;
     }
 

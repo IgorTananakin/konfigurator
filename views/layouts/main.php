@@ -53,7 +53,8 @@ AppAsset::register($this);
                 'class' => 'dropdown',
                 ],
                 'items' => [
-                ['label' => 'Сборки', 'url' => [Url::to(['admin/assembly'])]],
+                ['label' => 'Заказы', 'url' => [Url::to(['order/index'])]],
+                ['label' => 'Сборки', 'url' => [Url::to(['assembly/index'])]],
                 ['label' => 'Процессор', 'url' => [Url::to(['processor/index'])]],
                 ['label' => 'Материнская плата', 'url' => [Url::to(['motherboard/index'])]],
                 ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
