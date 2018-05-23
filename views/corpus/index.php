@@ -23,12 +23,8 @@ use app\components\MenuWidget;
                 <h4>Корпус <?php echo $corpusa->title?></h4>
 
                 
-
-                <?php if ($corpusa->image == ''): ?>
-                    <img src="/uploads/фото отсутвует.jpg" />
-                <?php else: ?>
-                <img src="/uploads/CorpusController/thumbnail-200x200/<?=$corpusa->image?>" class="button12"alt="ошибка"/>
-                <?php endif; ?>
+                <!-- вывод картинки метод в модели -->
+                <?=$corpusa->getImageUrl()?>
 
               
                     <p class="text_property">Размер <?php echo $corpusa->size;?> мм</p>

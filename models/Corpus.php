@@ -29,7 +29,23 @@ class Corpus extends \yii\db\ActiveRecord
     
     public function getImageUrl()
     {
-        return Url::to('@web/uploads/CorpusController/' . $this->image);
+
+        //$str='<img src="/uploads/CorpusController/thumbnail-200x200/' . $this->image .' "  class="button12" />';
+        
+
+         if ($this->image == '') 
+         {
+             $str='<img src="/uploads/фото отсутвует.jpg" />';
+         }
+        else {
+            $str='<img src="/uploads/CorpusController/thumbnail-200x200/' . $this->image .' "  class="button12" />';
+        }
+
+        //var_dump($str);die;
+
+        //if ()
+        //$str="/uploads/CorpusController/thumbnail-200x200/".$this->image;
+        return $str;
         
     }
     //

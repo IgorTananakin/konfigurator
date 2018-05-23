@@ -92,12 +92,12 @@ class AssemblyController extends \yii\web\Controller
         //$nameClass=Yii::$app->request->get('nameClass');//данные из get
         $_SESSION['assembly'][$nameClass]['title']=$n->title;
         
-        
+        //var_dump($nameClass);die;
        
             if (($nameClass == 'Processor') || ($nameClass == 'Motherboard')){
                 $_SESSION['assembly'][$nameClass]['socket_id'] = $n->socket_id;
                // $socket = $nameClass::find()->where(['socket_id' => $_SESSION['assembly']['socket_id']])->all();
-                return $this->redirect(['processor/test']);
+               // return $this->redirect(['processor/test']);
             }
        
         
@@ -118,7 +118,9 @@ class AssemblyController extends \yii\web\Controller
 
     // $session = Yii::$app->session;
         //$result = array_unique($_SESSION['basket']);//убираю повторения 
-        return $this->redirect(['processor/test']);          
+        
+        $nameClass = mb_strtolower($nameClass);//перевожу в нижний регистр
+        return $this->redirect([$nameClass.'/index']);          
      
     }
 

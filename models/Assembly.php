@@ -26,7 +26,8 @@ class Assembly extends \yii\db\ActiveRecord
     
         public function getImageUrl()
         {
-            return Url::to('@web/uploads/CorpusController/' . $this->image);
+            var_dump($this->image);die;
+            return '/uploads/CorpusController/thumbnail-200x200' . $this->image;
             
         }
     /**
@@ -62,16 +63,27 @@ class Assembly extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'soundCard.title' => 'Звуковая карта',
+            'sound_card_id' => 'Звуковая карта',
             'videocard.title' => 'Видео карта',
+            'video_card_id' => 'Видео карта',
             'ram.title' => 'Оперативная память',
+            'ram_id' => 'Оперативная память',
             'processor.title' => 'Процессор',
+            'processor_id' => 'Процессор',
             'harddisc.title' => 'Жёсткий диск',
+            'hard_disc_id' => 'Жёсткий диск',
             'driver.title' => 'Драйвер',
+            'driver_id' => 'Драйвер',
             'motherboard.title' => 'Материнская плата',
+            'motherboard_id' => 'Материнская плата',
             'powersupply.title' => 'Блок питания',
+            'power_supply_id' => 'Блок питания',
             'coolingsystem.title' => 'Кулер',
+            'cooling_system_id' => 'Кулер',
             'corpus.title' => 'Корпус',
+            'corpus_id' => 'Корпус',
             'networkcard.title' => 'Сетевая карта',
+            'network_card_id' => 'Сетевая карта',
 
         ];
     }

@@ -84,6 +84,7 @@ class CorpusController extends AdminController
         $model = new Corpus();
         if ($model->load(Yii::$app->request->post()))  {
             //для вставки картинки в папку и в базу готово
+            
             $model->image=UploadedFile::getInstance($model,'image');
             if($model->validate()){
                 
@@ -119,11 +120,25 @@ class CorpusController extends AdminController
         
         $model = $this->findModel($id);
         
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-           
-            
+        if ($model->load(Yii::$app->request->post()) ) {
+            // var_dump($model->image);die;
+           //для вставки картинки в папку и в базу готово
+           $model->image=UploadedFile::getInstance($model,'image');
+           //var_dump($model->validate());die;
+           if($model->validate()){
+               
+           if ($model->image) {
+               //var_dump($model->image->baseName);die;
+               $model->image->saveAs('uploads/CorpusController/'.$model->image->baseName.'.'.$model->image->extension);
+               // $model->image = $model->image->baseName . '.' . $model->image->extension;
+               $model->upload();//для сжатия картинки
+               $model->image = $model->image->baseName . '.' . $model->image->extension;
+           }
+        }
+        if ($model->save()) 
+        {
             return $this->redirect(['view', 'id' => $model->id]);
+        }
         } else {
             return $this->render('update', [
                 'model' => $model,
