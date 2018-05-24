@@ -43,4 +43,4 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 <h3>Изображение товара</h3>
-<img src="<?=$model->getImageUrl()?>" alt="картинка процессора"/>
+<?=$model->getImageUrl()?>

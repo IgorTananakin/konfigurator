@@ -23,11 +23,8 @@ use app\components\MenuWidget;
         <h4>Видеокарта <?php echo $videocards->title?></h4>
 
 
-        <?php if ($videocards->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/VideocardController/thumbnail-200x200/<?=$videocards->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$videocards->getImageUrl()?>
 
 
 

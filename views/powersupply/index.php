@@ -22,11 +22,8 @@ use app\components\MenuWidget; ?>
 
 
 
-        <?php if ($powersupplies->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/CorpusController/thumbnail-200x200/<?=$powersupplies->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$powersupplies->getImageUrl()?>
 
 
                     

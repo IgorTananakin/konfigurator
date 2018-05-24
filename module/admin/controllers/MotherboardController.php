@@ -60,28 +60,25 @@ class MotherboardController extends AdminController
 
     public function actionCreate()
     {
-        $model = new Motherboard();
-        if ($model->load(Yii::$app->request->post()))  {
-            //для вставки картинки в папку и в базу готово
-            $model->image=UploadedFile::getInstance($model,'image');
-            if($model->validate()){
-                
-            if ($model->image) {
-                $model->image->saveAs('uploads/MotherboardController/'.$model->image->baseName.'.'.$model->image->extension);
-                // $model->image = $model->image->baseName . '.' . $model->image->extension;
-                $model->upload();//для сжатия картинки
-                $model->image = $model->image->baseName . '.' . $model->image->extension;
-            }
-            
-            
-            if($model->save()){
-              
+        $model = $this->findModel($id);
+        
+        if ($model->load(Yii::$app->request->post()) ) {
+           //для вставки картинки в папку и в базу готово
+           $model->image=UploadedFile::getInstance($model,'image');
+           if($model->validate()){
+               
+           if ($model->image) {
+               $model->image->saveAs('uploads/MotherboardController/'.$model->image->baseName.'.'.$model->image->extension);
+               $model->upload();//для сжатия картинки
+               $model->image = $model->image->baseName . '.' . $model->image->extension;
+           }
+        }
+        if ($model->save()) 
+        {
             return $this->redirect(['view', 'id' => $model->id]);
-            }
-           
         }
         } else {
-            return $this->render('create', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }
@@ -96,9 +93,22 @@ class MotherboardController extends AdminController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        
+        if ($model->load(Yii::$app->request->post()) ) {
+           //для вставки картинки в папку и в базу готово
+           $model->image=UploadedFile::getInstance($model,'image');
+           if($model->validate()){
+               
+           if ($model->image) {
+               $model->image->saveAs('uploads/MotherboardController/'.$model->image->baseName.'.'.$model->image->extension);
+               $model->upload();//для сжатия картинки
+               $model->image = $model->image->baseName . '.' . $model->image->extension;
+           }
+        }
+        if ($model->save()) 
+        {
             return $this->redirect(['view', 'id' => $model->id]);
+        }
         } else {
             return $this->render('update', [
                 'model' => $model,

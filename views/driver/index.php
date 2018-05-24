@@ -20,13 +20,8 @@ use app\components\MenuWidget; ?>
 <?php $drivers->id?>
         <h4>CD/DVD привод <?php echo $drivers->title?></h4>
 
-
-
-        <?php if ($drivers->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/DriverController/thumbnail-200x200/<?=$drivers->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$drivers->getImageUrl()?>
         
 
 

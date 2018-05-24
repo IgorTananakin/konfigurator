@@ -60,6 +60,8 @@ AppAsset::register($this);
                 ['label' => 'Корпус', 'url' => [Url::to(['corpus/index'])]],
                 ['label' => 'Оперативная память', 'url' => [Url::to(['ram/index'])]],
                 ['label' => 'Жёсткий диск', 'url' => [Url::to(['harddisk/index'])]],
+                ['label' => 'Кулеры', 'url' => [Url::to(['coolingsystem/index'])]],
+                ['label' => 'Блок питания', 'url' => [Url::to(['powersupply/index'])]],
                 ['label' => 'Звуковая карта', 'url' => [Url::to(['soundcard/index'])]],
                 ['label' => 'Видео карта', 'url' => [Url::to(['videocard/index'])]],
                 ['label' => 'Сетевая карта', 'url' => [Url::to(['networkcard/index'])]],

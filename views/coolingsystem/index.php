@@ -21,11 +21,8 @@ use app\components\MenuWidget; ?>
 
         <h4>Кулер <?php echo $coolingsystems->title?></h4>
 
-         <?php if ($coolingsystems->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/CoolingsystemController/thumbnail-200x200/<?=$coolingsystems->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$coolingsystems->getImageUrl()?>
 
 
         <p class="text_property">Мощность <?php echo $coolingsystems->power;?> Вт</p>

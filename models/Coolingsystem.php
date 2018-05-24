@@ -23,10 +23,16 @@ use Imagine\Image\Box;
 class Coolingsystem extends \yii\db\ActiveRecord
 {
      //добавление функции для вставки картинки во views
-    
      public function getImageUrl()
      {
-         return Url::to('@web/uploads/CoolingsystemController/' . $this->image);
+          if ($this->image == '') 
+          {
+              $str_image='<img src="/uploads/фото отсутвует.jpg" />';
+          }
+         else {
+             $str_image='<img src="/uploads/CoolingsystemController/thumbnail-200x200/' . $this->image .' "  class="button12" />';
+         }
+         return $str_image;
          
      }
      //

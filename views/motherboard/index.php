@@ -25,13 +25,8 @@ use app\components\MenuWidget; ?>
         <h4>Материнская плата <?php echo $motherboards->title?></h4>
 
 
-
-
-        <?php if ($motherboards->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/MotherboardController/thumbnail-200x200/<?=$motherboards->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$motherboards->getImageUrl()?>
 
 
 

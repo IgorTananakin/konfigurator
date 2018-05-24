@@ -23,11 +23,16 @@ use Yii;
 class Assembly extends \yii\db\ActiveRecord 
 {
         //добавление функции для вставки картинки во views
-    
         public function getImageUrl()
         {
-            var_dump($this->image);die;
-            return '/uploads/CorpusController/thumbnail-200x200' . $this->image;
+             if ($this->corpus->image == '') 
+             {
+                 $str_image='<img src="/uploads/фото отсутвует.jpg" />';
+             }
+            else {
+                $str_image='<img src="/uploads/CorpusController/thumbnail-200x200/' . $this->corpus->image .' "  class="button12" />';
+            }
+            return $str_image;
             
         }
     /**

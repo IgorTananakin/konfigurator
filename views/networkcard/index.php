@@ -22,11 +22,8 @@ use app\components\MenuWidget; ?>
 
 
 
-        <?php if ($networkcards->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/NetworkcardController/thumbnail-200x200/<?=$networkcards->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$networkcards->getImageUrl()?>
 
 
 

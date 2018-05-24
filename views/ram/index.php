@@ -21,11 +21,8 @@ use app\components\MenuWidget; ?>
         <h4>Оперативная память <?php echo $rams->title?></h4>
 
 
-        <?php if ($rams->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/RamController/thumbnail-200x200/<?=$rams->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$rams->getImageUrl()?>
 
 
 

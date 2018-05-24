@@ -3,23 +3,27 @@
 /* @var $this yii\web\View */
 use app\models\Assembly;
 ?>
-<h1>Сборка №<?=$assembly->id?></h1>
-<img src="/uploads/CorpusController/korpis1.jpg" class="button12"alt="картинка сборки"/>
+<div class="col-md-4 ">
+<h1>Сборка <?=$assembly->title?></h1>
+<?=$assembly->getImageUrl()?>
+<p class="price">Цена <?php echo $assembly->getSum();?> руб</p>
 
-		<p class="text-primary">Процессор:<small><?=$assembly->processor->title;?></small></p>
-		<p class="text-primary">Оперативная память: <small><?=$assembly->ram->title?></small></p>
-		<p class="text-primary">Материнская плата: <small><?=$assembly->motherboard->title?></small></p>
-		<p class="text-primary">Видео карта: <small><?=$assembly->videocard->title?></small></p>
-        <p class="text-primary">Жёсткий диск: <small><?//=$assembly->HardDisk->title?></small></p>
-        <p class="text-primary">Сетевая карта: <small><?=$assembly->networkcard->title?></small></p>
-        <p class="text-primary">Звуковая карта: <small><?=$assembly->soundCard->title?></small></p>
-        <p class="text-primary">Блок питания: <small><?=$assembly->powersupply->title?></small></p>
-        <p class="text-primary">Кулер: <small><?//=$assembly->colingsystem->title?></small></p>
-        <p class="text-primary">CD/DVD привод: <small><?=$assembly->driver->title?></small></p>
-        <p class="text-primary">Корпус: <small><?=$assembly->corpus->title?></small></p>
-		<p class="text-danger">Цена <?php echo $assembly->getSum();?></p>
+<a href="<?=\yii\helpers\Url::to(['site/index'])?>"class="btn btn-more">Назад</a>
+<a href="<?=\yii\helpers\Url::to(['basket/add','id'=>$assembly->id])?>" data-id="<?=$assembly->id?>" class="btn btn-primary add-to-basket">В корзину</a>
+</div>
+<div class="col-md-8 ">
+<h3>Характеристики</h3>
+		<p class="text_complex">Процессор:<small><?=$assembly->processor->title;?></small></p>
+		<p class="text_complex">Оперативная память: <small><?=$assembly->ram->title?></small></p>
+		<p class="text_complex">Материнская плата: <small><?=$assembly->motherboard->title?></small></p>
+		<p class="text_complex">Видео карта: <small><?=$assembly->videocard->title?></small></p>
+        <p class="text_complex">Жёсткий диск: <small><?=$assembly->harddisc->title?></small></p>
+        <p class="text_complex">Сетевая карта: <small><?=$assembly->networkcard->title?></small></p>
+        <p class="text_complex">Звуковая карта: <small><?=$assembly->soundCard->title?></small></p>
+        <p class="text_complex">Блок питания: <small><?=$assembly->powersupply->title?></small></p>
+        <p class="text_complex">Кулер: <small><?=$assembly->coolingsystem->title?></small></p>
+        <p class="text_complex">CD/DVD привод: <small><?=$assembly->driver->title?></small></p>
+        <p class="text_complex">Корпус: <small><?=$assembly->corpus->title?></small></p>
 
-		<a href="<?=\yii\helpers\Url::to(['site/index'])?>"class="btn btn-more">Назад</a>
-		<a href="<?=\yii\helpers\Url::to(['basket/add','id'=>$assembly->id])?>" data-id="<?=$assembly->id?>" class="btn btn-primary add-to-basket">В корзину</a>
-
+</div>
 

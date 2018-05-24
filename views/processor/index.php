@@ -20,11 +20,8 @@ use app\components\MenuWidget; ?>
         <h4>Процессор <?php echo $processors->title?></h4>
 
 
-        <?php if ($processors->image == ''): ?>
-                    <img src="/uploads/фото отсутвует.jpg" />
-                <?php else: ?>
-                <img src="/uploads/ProcessorController/thumbnail-200x200/<?=$processors->image?>" class="button12"alt="ошибка"/>
-                <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$processors->getImageUrl()?>
 
 
 

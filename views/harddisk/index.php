@@ -24,11 +24,8 @@ use app\components\MenuWidget; ?>
         
 
 
-        <?php if ($harddisks->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/HarddiskController/thumbnail-200x200/<?=$harddisks->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$harddisks->getImageUrl()?>
 
 
 

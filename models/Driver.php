@@ -24,7 +24,15 @@ class Driver extends \yii\db\ActiveRecord
     
      public function getImageUrl()
      {
-         return Url::to('@web/uploads/DriverController/' . $this->image);
+          if ($this->image == '') 
+          {
+              $str_image='<img src="/uploads/фото отсутвует.jpg" />';
+          }
+         else {
+             $str_image='<img src="/uploads/DriverController/thumbnail-200x200/' . $this->image .' "  class="button12" />';
+         }
+ 
+         return $str_image;
          
      }
      //

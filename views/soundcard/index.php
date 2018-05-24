@@ -21,11 +21,8 @@ use app\components\MenuWidget; ?>
         <h4>Звуковая карта <?php echo $soundcards->title?></h4>
 
 
-        <?php if ($soundcards->image == ''): ?>
-        <img src="/uploads/фото отсутвует.jpg" />
-        <?php else: ?>
-        <img src="/uploads/SoundcardController/thumbnail-200x200/<?=$soundcards->image?>" class="button12"alt="ошибка"/>
-        <?php endif; ?>
+        <!-- вывод картинки метод в модели -->
+        <?=$soundcards->getImageUrl()?>
 
 
                     <p class="text_property">Мощность <?php echo $soundcards->power;?> Вт</p>
