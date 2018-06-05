@@ -6,16 +6,15 @@ use app\components\MenuWidget; ?>
 <div class="col-md-9 ">
 
 
-<?php foreach ($processor as $key => $processors): ?>
-
-<?php ?>
+<?php foreach ($processor as $value => $processors): ?>
+<?php if($value % 3 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
 
 
 
     <div class="col-md-4">
-    <?php// if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php//endif?>
+
 <?php $processors->id?>
         <h4>Процессор <?php echo $processors->title?></h4>
 

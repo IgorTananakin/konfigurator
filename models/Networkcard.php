@@ -47,7 +47,7 @@ class Networkcard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'power'], 'required','message'=>'Не заполнено поле'],
+            [['title', 'power','data_transfer_speed'], 'required','message'=>'Не заполнено поле'],
             [['power'], 'integer'],
             [['title'], 'string', 'max' => 50],
             [['image'],'image'],
@@ -63,6 +63,9 @@ class Networkcard extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Название',
             'power' => 'Мощность',
+            'data_transfer_speed' => 'Скорость передачи данных',
+            'image' => 'Изображение',
+            
         ];
     }
     //для изменения размера изображения

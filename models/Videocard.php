@@ -53,7 +53,7 @@ class Videocard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'graphical_scheme', 'video_controler', 'size_video_memory', 'pci_count', 'pcie_count', 'power'], 'required','message'=>'Не заполнено поле'],
+            [['title', 'price', 'graphical_scheme', 'video_controler', 'size_video_memory', 'pci_count', 'pcie_count', 'power','memory_id'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['size_video_memory', 'pci_count', 'pcie_count', 'power'], 'integer'],
             [['title', 'graphical_scheme'], 'string', 'max' => 50],
@@ -74,9 +74,11 @@ class Videocard extends \yii\db\ActiveRecord
             'graphical_scheme' => 'Графическая схема',
             'video_controler' => 'Видео контроллер',
             'size_video_memory' => 'Размер видео карты',
-            'pci_count' => 'Pci количество',
-            'pcie_count' => 'Pcie количество',
+            'pci_count' => 'Количество PCI',
+            'pcie_count' => 'Количество PCIE',
             'power' => 'Мощность',
+            'memory_id' => 'Память',
+            'image' => 'Изображение',
         ];
     }
 

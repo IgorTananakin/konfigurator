@@ -44,7 +44,7 @@ class AssemblyController extends \yii\web\Controller
         $id=$assembly->id;
         //var_dump($assembly->id);die;
         $_SESSION['assembly']=[];
-        $_SESSION['basket'][]=$id;
+        ///$_SESSION['basket'][]=$id;
 
 
         // return  $this->render('createassembly',[
@@ -52,7 +52,7 @@ class AssemblyController extends \yii\web\Controller
         // ]);
 
 
-        return $this->redirect(['basket/index']);
+        return $this->redirect(array('basket/add','id'=>$assembly->id));
     }
 
 

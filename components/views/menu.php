@@ -77,10 +77,14 @@ use app\components\Myhelper;
     </li>
    
    <?php //allElements(); ?>
+   <?php if (isset(Yii::$app->user->identity)):?>
    <?php if (Myhelper::allElements() == true): ?>
         <a href="<?=\yii\helpers\Url::to(['assembly/createassembly'])?>"  class="btn btn-primary">Заказать сборку</a>
 
     <?php endif; ?>
+<?php elseif(!isset(Yii::$app->user->identity)):?>
+    <a href="<?=\yii\helpers\Url::to(['site/login'])?>"class="btn btn-primary"> Авторизуйтесь для продолжения</a>
+<?php endif; ?>
 
   </ul>
 </nav>

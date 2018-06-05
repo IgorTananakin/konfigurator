@@ -9,16 +9,14 @@ use app\components\MenuWidget;
 <?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
-<?php foreach ($videocard as $key => $videocards): ?>
-
-<?php ?>
-
+<?php foreach ($videocard as $value => $videocards): ?>
+<?php if($value % 3 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
 
 
     <div class="col-md-4">
-    <?php if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php endif?>
+
 <?php $videocards->id?>
         <h4>Видеокарта <?php echo $videocards->title?></h4>
 

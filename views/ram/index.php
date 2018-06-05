@@ -7,16 +7,13 @@ use app\components\MenuWidget; ?>
 <?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
-<?php foreach ($ram as $key => $rams): ?>
-
-<?php ?>
-
-
+<?php foreach ($ram as $value=>$rams): ?>
+<?php if($value % 3 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
 
     <div class="col-md-4">
-    <?php if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php endif?>
+
 <?php $rams->id?>
         <h4>Оперативная память <?php echo $rams->title?></h4>
 

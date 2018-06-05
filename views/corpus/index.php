@@ -28,7 +28,6 @@ use app\components\MenuWidget;
 
               
                     <p class="text_property">Размер <?php echo $corpusa->size;?> мм</p>
-                    <p class="text_property">Размер под жёсткий диск <?php echo $corpusa->size_hard_disc;?> мм</p>
                     <p class="text_property">Мощность <?php echo $corpusa->power;?> Вт</p>
                    
                     <p class="price">Цена <?php echo $corpusa->price;?> руб</p>

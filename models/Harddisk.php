@@ -67,7 +67,12 @@ class Harddisk extends \yii\db\ActiveRecord
             'price' => 'Цена',
             'socket_id' => 'Socket',
             'power' => 'Мощность',
+            'image' => 'Изображение',
         ];
+    }
+    public function getSocket()
+    {
+        return $this->hasOne(Socket::className(), ['id' => 'socket_id']);
     }
     //для изменения размера изображения
 public function upload() {

@@ -14,11 +14,16 @@ use app\models\Assembly;
 
 <div class="container-fluid">
 	<div class="row">
-		
-	<?php foreach ($assemblys as $assembly): ?>
 
-		<div class="assembly">
+
+
+	<?php foreach ($assemblys as $value => $assembly): ?>
+	<?php if($value % 4 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
+
 			<div class="col-md-3">
+			
 				<div class="thumbnail">
 					<h4 class="Name_sborka"><?=$assembly->title?></h4>
 					
@@ -44,7 +49,7 @@ use app\models\Assembly;
 				</div>
 
 			</div>
-		</div>
+		
 	<?php endforeach ?>
 
 		

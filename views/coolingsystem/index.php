@@ -7,16 +7,14 @@ use app\components\MenuWidget; ?>
 <?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
-<?php foreach ($coolingsystem as $key => $coolingsystems): ?>
-
-<?php ?>
+<?php foreach ($coolingsystem as $value => $coolingsystems): ?>
+<?php if($value % 3 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
 
 
 
     <div class="col-md-4">
-    <?php if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php endif?>
 <?php $coolingsystems->id?>
 
         <h4>Кулер <?php echo $coolingsystems->title?></h4>

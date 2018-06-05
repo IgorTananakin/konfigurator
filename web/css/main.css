@@ -1,8 +1,21 @@
 .assembly{
+	/* overflow: hidden; */
 	/* width:200px; */
 	/* position:relative	; */
+	/* display: inline-block; */
+	line-height: 450 px;
 
 }
+.clear{
+	content: '';   
+	/*Обязательное свойство*/
+	display:block; 
+	/*Делаем элемент блочным*/
+	clear:both;   
+	/*Запрещаем обтекание*/
+	/* overflow:hidden; */
+}
+.clearfix {display: inline-block;}
 .menutext{
 	color:#4f4646;
 	font-size:15px;

@@ -11,16 +11,16 @@ use app\components\MenuWidget; ?>
 
 
 <div class="col-md-9 ">
-<?php foreach ($motherboard as $key => $motherboards): ?>
-
-<?php ?>
+<?php foreach ($motherboard as $value => $motherboards): ?>
+<?php if($value % 4 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
 
 
 
     <div class="col-md-4">
-    <?php if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php endif?>
+
+    
 <?php $motherboards->id?>
         <h4>Материнская плата <?php echo $motherboards->title?></h4>
 

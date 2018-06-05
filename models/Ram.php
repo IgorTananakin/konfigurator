@@ -51,7 +51,7 @@ class Ram extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'manufacturer', 'price', 'frequency', 'sze', 'power'], 'required','message'=>'Не заполнено поле'],
+            [['title', 'manufacturer', 'price', 'frequency', 'sze', 'power','memory_id'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [['frequency', 'sze', 'power'], 'integer'],
             [['title'], 'string', 'max' => 50],
@@ -73,6 +73,7 @@ class Ram extends \yii\db\ActiveRecord
             'frequency' => 'Частота',
             'sze' => 'Размер',
             'power' => 'Мощность',
+            'image' => 'Изображение',
         ];
     }
 

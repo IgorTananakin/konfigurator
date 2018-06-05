@@ -50,7 +50,7 @@ class Driver extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'title', 'price', 'size', 'power'], 'required','message'=>'Не заполнено поле'],
+            [['id', 'title', 'price', 'size', 'power','interface'], 'required','message'=>'Не заполнено поле'],
             [['id',  'power'], 'integer'],
             [['price'], 'number'],
             [['title','size'], 'string', 'max' => 50],
@@ -69,6 +69,8 @@ class Driver extends \yii\db\ActiveRecord
             'price' => 'Цена',
             'size' => 'Размер',
             'power' => 'Мощность',
+            'interface' => 'Интерфейс',
+            'image' => 'Изображение',
         ];
     }
 

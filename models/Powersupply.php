@@ -66,6 +66,7 @@ class Powersupply extends \yii\db\ActiveRecord
             'title' => 'Название',
             'price' => 'Цена',
             'power' => 'Мощность',
+            'image' => 'Изображение',
         ];
     }
 

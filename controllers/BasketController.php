@@ -44,19 +44,16 @@ public function actionAdd()
 {
     $id=Yii::$app->request->get('id');//данные из get
    // $session->open();
-   
 
    if (!isset($_SESSION['basket'][$id]['count']))
    {
-    
+    $_SESSION['basket'][$id]=array() ;//так как я не создал третий уровень создаю его
     // $_SESSION['basket']['assembly']=$id;
     $_SESSION['basket'][$id]['count']=0 ;
     
    // var_dump($count);
-    var_dump($_SESSION['basket'][$id]['count']);
-    var_dump($_SESSION['basket']);//die;
+   
    } 
-
 
     
     
@@ -73,6 +70,7 @@ public function actionAdd()
    //  {
         
          $_SESSION['basket'][$id]['count'] = $_SESSION['basket'][$id]['count']+1;
+
     //     //var_dump($_SESSION['basket']['assembly'][$assembly->id]['count']);die;
    //  }
     // //var_dump($_SESSION['assembly']['assembly'][$assembly->id]['count']);
@@ -144,12 +142,10 @@ public function actionClear()
      */
     public function actionIndex()
     {
-        $searchModel = new BasketSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+          
         ]);
     }
 

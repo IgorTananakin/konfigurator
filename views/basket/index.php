@@ -19,10 +19,10 @@ use yii\helpers\Url;
         
 
 <?php foreach($_SESSION['basket'] as $id => $item): ?>
-<?php //var_dump($id );die;?>
+
 
     <?php $assembly = Assembly::findOne($id) ?> 
-
+   
         <tbody>
             <tr>
                 <td><?php echo "Сборка" ?></td>
@@ -41,7 +41,7 @@ use yii\helpers\Url;
         
     </table>
     
-    <p>Итого на сумму:<?php// echo $assembly->getSumall(); ?></p>
+   
 
      <a href="<?php  echo Url::to(['basket/clear'])?>" class="btn btn-primary">Очистить корзину</a> 
    

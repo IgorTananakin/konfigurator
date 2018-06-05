@@ -55,10 +55,10 @@ class Corpus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'size', 'size_hard_disc', 'power'], 'required','message'=>'Не заполнено поле'],
+            [['title', 'price', 'size', 'power'], 'required','message'=>'Не заполнено поле'],
             [['price'], 'number'],
             [[ 'power'], 'integer'],
-            [['size','title', 'size_hard_disc'], 'string', 'max' => 50],
+            [['size','title'], 'string', 'max' => 50],
             [['image'],'image'],
         ];
     }
@@ -74,7 +74,6 @@ class Corpus extends \yii\db\ActiveRecord
             'title' => 'Название',
             'price' => 'Цена',
             'size' => 'Размер',
-            'size_hard_disc' => 'Физический размер под жёсткий диск',
             'power' => 'Мощность',
             'image' => 'Изображение',
         ];

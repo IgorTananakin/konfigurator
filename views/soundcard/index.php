@@ -7,16 +7,15 @@ use app\components\MenuWidget; ?>
 <?php echo MenuWidget::widget() ?>
 
 <div class="col-md-9 ">
-<?php foreach ($soundcard as $key => $soundcards): ?>
-
-<?php ?>
+<?php foreach ($soundcard as $value => $soundcards): ?>
+<?php if($value % 3 == 0 ): ?>
+		<div class="clear"> </div>
+	<?php endif;?>
 
 
 
     <div class="col-md-4">
-    <?php if ($key % 3 == 0): ?>
-    <div class="clearfix"></div>
-<?php endif?>
+    
 <?php $soundcards->id?>
         <h4>Звуковая карта <?php echo $soundcards->title?></h4>
 
